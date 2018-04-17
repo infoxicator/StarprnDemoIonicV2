@@ -1,14 +1,81 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      StarPRNT Demo SDK 5.5
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+  <ion-list>
+      <ion-item-group>
+          <ion-item-divider color="light">Destination Device</ion-item-divider>    
+                    
+      <ion-item *ngIf="defaultPrinter?.portName" (click)="printerTypePopup()">
+        <h2>{{defaultPrinter?.modelName}} </h2>
+              <p>{{defaultPrinter?.portName}} ({{defaultPrinter?.macAddress}})</p>
+              <p>Emulation: {{defaultPrinter?.emulation}}</p>
+      </ion-item>
+      <ion-item *ngIf="!defaultPrinter?.portName" (click)="printerTypePopup()">
+              <p>Select a printer... </p>
+      </ion-item>
+      </ion-item-group>
+      <ion-item-group>
+          <ion-item-divider color="light"> Printer SMPort StarIO-SDK Sample</ion-item-divider> 
+      </ion-item-group>
+
+      <ion-item (click)="printRawText()">
+              <p>Print Raw Text Sample</p>                                  
+      </ion-item>
+      <ion-item (click)="printRasterReceipt()">
+              <p>Print Raster Receipt (3")</p>
+      </ion-item>
+      <ion-item (click)="printFromCamera()">
+                  <p>Print From Camera</p>                  
+      </ion-item>
+      <ion-item (click)="printFromLibrary()">
+                  <p>Print From Photo Library</p>                  
+      </ion-item>
+
+      <ion-item-group>
+        <ion-item-divider color="light"> Printer ICommandBuilderInterface Sample</ion-item-divider> 
+      </ion-item-group>
+
+      <ion-item (click)="print()">
+            <p>Print</p>                                  
+      </ion-item>
+      <ion-item (click)="print()">
+            <p>Print (Horizontal Tabs example)</p>
+      </ion-item>
+      <ion-item (click)="print()">
+                <p>Print (QRCode)</p>                  
+      </ion-item>
+      <ion-item (click)="print()">
+                <p>Print (appendBitmap command example)</p>                  
+      </ion-item>
+       <ion-item-group>
+          <ion-item-divider color="light">Printer StarIOextManager Sample</ion-item-divider> 
+      </ion-item-group>
+      <ion-item (click)="showPrinterStatus()">
+              <p>Sample</p>                    
+              
+      </ion-item> 
+        <ion-item-group>
+          <ion-item-divider color="light">Cash Drawer</ion-item-divider> 
+        </ion-item-group>
+        <ion-item (click)="showPrinterStatus()">
+              <p>Sample</p>                    
+              
+        </ion-item> 
+
+      <ion-item-group>
+          <ion-item-divider color="light">Device Status</ion-item-divider> 
+      </ion-item-group>
+      <ion-item (click)="showPrinterStatus()">
+              <p>Sample</p>                    
+              
+      </ion-item>                            
+                                         
+  </ion-list>
+
 </ion-content>

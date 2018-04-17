@@ -1,0 +1,56 @@
+
+<ion-header>
+    <ion-navbar>
+            <ion-title>Device Status</ion-title>
+            <ion-buttons end>
+                <button ion-button icon-only (click)="checkStatus()">
+                    <ion-icon name="refresh"></ion-icon>
+                </button>
+            </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-list>
+        <ion-item-group>
+        <ion-item-divider color="light">Device Status</ion-item-divider>           
+        <ion-item>
+            Online
+            <button *ngIf="printerStatus && !printerStatus?.offline" ion-button round item-end>Online</button>     
+            <button *ngIf="printerStatus && printerStatus?.offline" ion-button round item-end color="danger">Offline</button>     
+        </ion-item>
+  
+        <ion-item>
+                Cover
+                <button *ngIf="printerStatus && !printerStatus?.coverOpen" ion-button round item-end>Closed</button> 
+                <button *ngIf="printerStatus && printerStatus?.coverOpen" ion-button round item-end color="danger">Open</button>                         
+        </ion-item>
+        <ion-item>
+            Paper
+            <button *ngIf="printerStatus && !printerStatus?.receiptPaperEmpty" ion-button round item-end>Ready</button> 
+            <button *ngIf="printerStatus && printerStatus?.receiptPaperEmpty" ion-button round item-end color="danger">Empty</button>    
+        </ion-item>
+        <ion-item>
+                Paper Cutter
+            <button *ngIf="printerStatus && !printerStatus?.cutterError" ion-button round item-end>Ready</button> 
+            <button *ngIf="printerStatus && printerStatus?.cutterError" ion-button round item-end color="danger">Error</button>                       
+        </ion-item>
+        </ion-item-group>
+        <ion-item-group>
+            <ion-item-divider color="light">Firmware Information</ion-item-divider> 
+        </ion-item-group>
+        <ion-item>
+            Model Name:
+            <button *ngIf="printerStatus?.ModelName" ion-button round item-end>{{printerStatus?.ModelName}}</button>     
+        </ion-item>
+  
+        <ion-item>
+                Firmware Version:
+                <button *ngIf="printerStatus?.FirmwareVersion" ion-button round item-end>{{printerStatus?.FirmwareVersion}}</button>                         
+        </ion-item>                      
+                                           
+    </ion-list>
+
+
+</ion-content>
