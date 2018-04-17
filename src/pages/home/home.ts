@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, AlertController, ModalController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { PrinterService } from "../../services/printer.service";
-import { PrinterListPage } from "../printer-list/printer-list";
+import { AlertService } from '../../services/alert.service';
+import { PrintObj, RasterObj, ImageObj } from '@ionic-native/star-prnt';
 
 @Component({
   selector: 'page-home',
@@ -12,7 +13,9 @@ export class HomePage {
 
   defaultPrinter:any;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, private printerService:PrinterService, private camera:Camera, public modalCtrl: ModalController) { }
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, private printerService:PrinterService, private camera:Camera, public modalCtrl: ModalController,
+    private alertService: AlertService) { }
+  
   printerTypePopup() {
     let alert = this.alertCtrl.create();
     alert.setTitle('Select Interface');
@@ -52,11 +55,76 @@ export class HomePage {
   }
 
   printRawText(){
-    console.log('raw text');
+    let loading = this.alertService.createLoading("Communicating...");
+    loading.present();
+
+    let printObj:PrintObj = {
+      text:"Star Clothing Boutique\n123 Star Road\nCity, State 12345\n\n",
+      cutReceipt:true,
+      openCashDrawer:false
+    }
+
+    this.printerService.printRawText(this.defaultPrinter.portName, this.defaultPrinter.emulation, printObj)
+      .then(result => {
+      loading.dismiss();
+      this.alertService.createAlert("Success!", "Communication Result: ") })
+      .catch(error => {
+        loading.dismiss();
+        this.alertService.createAlert(error) })
+  }
+
+  selectRasterReceipt(){
+    let alert = this.alertCtrl.create();
+    alert.setTitle('Select Paper Size');
+
+    alert.addInput({type: 'radio', label: '2" (384dots)', value: '2', checked: true });
+    alert.addInput({type: 'radio', label: '3" (576dots)', value: '3' });
+    alert.addInput({type: 'radio', label: '4" (832dots)', value: '4' });
+    alert.addButton('Cancel');
+    alert.addButton({
+      text: 'OK',
+      handler: paperSize => {
+        let rasterObj = this.printerService.rasterReceiptExample(paperSize);
+        this.printRasterReceipt(rasterObj);
+      }
+    });
+    alert.present();
 
   }
-  printRasterReceipt(){
-    console.log('raster receipt');
+
+  printRasterReceipt(rasterObj){
+
+    let loading = this.alertService.createLoading("Communicating...");
+    loading.present();  
+
+    this.printerService.printRasterReceipt(this.defaultPrinter.portName, this.defaultPrinter.emulation, rasterObj)
+      .then(result => {
+      loading.dismiss();
+      this.alertService.createAlert("Success!", "Communication Result: ") })
+      .catch(error => {
+        loading.dismiss();
+        this.alertService.createAlert(error) })
+  }
+
+  printImage(uri:string){
+
+    let loading = this.alertService.createLoading("Communicating...");
+    loading.present();
+
+    let imageObj:ImageObj = {
+      uri:uri,
+      paperWidth:576,      
+      cutReceipt:true,
+      openCashDrawer:false
+    }
+
+    this.printerService.printImage(this.defaultPrinter.portName, this.defaultPrinter.emulation, imageObj)
+      .then(result => {
+      loading.dismiss();
+      this.alertService.createAlert("Success!", "Communication Result: ") })
+      .catch(error => {
+        loading.dismiss();
+        this.alertService.createAlert(error) })
   }
 
   printFromCamera(){
@@ -67,12 +135,13 @@ export class HomePage {
       mediaType: this.camera.MediaType.PICTURE
     }
     
-    this.camera.getPicture(options).then((imageData) => {
-      console.log(imageData);
+    this.camera.getPicture(options).then((uri) => {
+      this.printImage(uri);
     }, (err) => {
-     alert('Camera Error: ' + err);
+      this.alertService.createAlert(err, 'Camera Error: ');
     });
   }
+
   printFromLibrary(){
     const options: CameraOptions = {
       quality: 100,
@@ -82,12 +151,13 @@ export class HomePage {
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
     }
     
-    this.camera.getPicture(options).then((imageData) => {
-      console.log(imageData);
+    this.camera.getPicture(options).then((uri) => {
+      this.printImage(uri);
     }, (err) => {
-     alert('Camera Error: ' + err);
+      this.alertService.createAlert(err, 'Library Error: ');
     });
   }
+
   showPrinterStatus(){
     this.navCtrl.push('page-status', {
       portName: this.defaultPrinter.portName,
