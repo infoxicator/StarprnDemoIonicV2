@@ -3,7 +3,7 @@ import { NavController, AlertController, ModalController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { PrinterService } from "../../services/printer.service";
 import { AlertService } from '../../services/alert.service';
-import { PrintObj, RasterObj, ImageObj } from '@ionic-native/star-prnt';
+import { PrintObj, ImageObj } from '@ionic-native/star-prnt';
 
 @Component({
   selector: 'page-home',
@@ -55,6 +55,7 @@ export class HomePage {
   }
 
   printRawText(){
+    if(this.defaultPrinter){
     let loading = this.alertService.createLoading("Communicating...");
     loading.present();
 
@@ -71,6 +72,9 @@ export class HomePage {
       .catch(error => {
         loading.dismiss();
         this.alertService.createAlert(error) })
+      }else{
+        this.alertService.createAlert("Please select a printer!");
+      }
   }
 
   selectRasterReceipt(){
@@ -93,7 +97,7 @@ export class HomePage {
   }
 
   printRasterReceipt(rasterObj){
-
+    if(this.defaultPrinter){
     let loading = this.alertService.createLoading("Communicating...");
     loading.present();  
 
@@ -104,10 +108,13 @@ export class HomePage {
       .catch(error => {
         loading.dismiss();
         this.alertService.createAlert(error) })
+      }else{
+        this.alertService.createAlert("Please select a printer!");
+      }
   }
 
   printImage(uri:string){
-
+    if(this.defaultPrinter){
     let loading = this.alertService.createLoading("Communicating...");
     loading.present();
 
@@ -125,6 +132,9 @@ export class HomePage {
       .catch(error => {
         loading.dismiss();
         this.alertService.createAlert(error) })
+      }else{
+        this.alertService.createAlert("Please select a printer!");
+      }
   }
 
   printFromCamera(){
@@ -154,15 +164,41 @@ export class HomePage {
     this.camera.getPicture(options).then((uri) => {
       this.printImage(uri);
     }, (err) => {
-      this.alertService.createAlert(err, 'Library Error: ');
+      this.alertService.createAlert(err, 'Photo Library Error: ');
     });
   }
 
+  showStarIOExtManagerPage(){
+    this.navCtrl.push('ext-manager');    
+  }
+
+  openCashDrawer(){
+    if(this.defaultPrinter){
+      
+    let loading = this.alertService.createLoading("Communicating...");
+    loading.present();
+
+    this.printerService.openCashDrawer(this.defaultPrinter.portName, this.defaultPrinter.emulation)
+    .then(result => {
+      loading.dismiss();
+      this.alertService.createAlert("Success!", "Communication Result: ") })
+      .catch(error => {
+        loading.dismiss();
+        this.alertService.createAlert(error) })
+    }else{
+    this.alertService.createAlert("Please select a printer!");
+    }
+  }
+
   showPrinterStatus(){
+    if(this.defaultPrinter){
     this.navCtrl.push('page-status', {
       portName: this.defaultPrinter.portName,
       emulation: this.defaultPrinter.emulation
     });
+    }else{
+      this.alertService.createAlert("Please select a printer!");
+    }
   }
 
   ionViewDidEnter() {

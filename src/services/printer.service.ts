@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { StarPRNT, Printer, Printers, PrinterStatus, PrintObj, RasterObj, ImageObj } from '@ionic-native/star-prnt';
 import { Storage } from '@ionic/storage';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class PrinterService {
@@ -57,6 +58,43 @@ export class PrinterService {
     printImage(port: string, emulation: string, imageObj: ImageObj): Promise<any> { 
         return this.starprnt.printImage(port, emulation, imageObj);
     }
+
+    /**
+     * sends an appendPeripheral command to the printer for channels No1 and No2
+     * @param port {string} printer name i.e BT:StarMicronics.  Send null to use a printer connected via StarIOExtManager using the connect() function
+     * @param emulation {string} StarPrinter Emulation type: "StarPRNT", "StarPRNTL", "StarLine", "StarGraphic", "EscPos", "EscPosMobile", "StarDotImpact"
+     * @return {Promise<any>} Success! if opened or error message string returned by the SDK.
+     */
+    openCashDrawer(port: string, emulation: string): Promise<any> { 
+        return this.starprnt.openCashDrawer(port, emulation);
+    }
+
+    /**
+     * Allows you to connect to the printer, keep the connection alive and receive status updates through an observable
+     * @param port {string} printer name i.e BT:StarMicronics.
+     * @param emulation {string} StarPrinter Emulation type: "StarPRNT", "StarPRNTL", "StarLine", "StarGraphic", "EscPos", "EscPosMobile", "StarDotImpact"
+     * @return {Observable<any>} Success! if connected or error message string returned by the SDK.
+     */
+      connect(port: string, emulation: string): Observable<any> { 
+         return this.starprnt.connect(port, emulation);        
+        }
+  
+      /**
+       * Allows to disconnect (close the connection to the peripherals), this is useful to avoid keeping alive a connection when not in the app to save device battery 
+       * (energy consumption). You should call this function when the app is paused or closed.
+       * @return {Promise<any>} Success! if connected or error message string returned by the SDK.
+       */
+      disconnect(): Promise<any> { 
+          return this.starprnt.disconnect(); 
+        }
+
+        /**
+       * Returns an observable with the device status events. Only fires when a printer is connnected through the connect() function
+       * @return {Observable<any>} Events: printerOnline, printerOffline, printerImpossible, printerPaperEmpty, printerPaperNearEmpty, printerPaperReady, printerCoverOpen, printerCoverClose, cashDrawerOpen, cashDrawerClose
+       */
+      getStatus(): Observable<any> { 
+        return this.starprnt.getStatus(); 
+      }
 
     /**
      * Save the printer object and emulation to Local Storage

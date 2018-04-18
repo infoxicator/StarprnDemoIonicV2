@@ -10,11 +10,11 @@ export class AlertService {
   createAlert(error:string, message?:string){
       console.log('create alert');
       let subTitle = message?message:"Something went wrong...";
-        const alert = this.alertCtrl.create({
+        const customAlert = this.alertCtrl.create({
         subTitle: subTitle +'<br /><p class=\'error-details\'>' + error + '</p>',
         buttons: ['Ok']
         });    
-        return alert.present();
+        return customAlert.present();
     }
 
     createLoading(loadingText: string){

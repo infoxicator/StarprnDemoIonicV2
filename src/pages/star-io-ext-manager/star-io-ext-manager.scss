@@ -1,0 +1,22 @@
+page-star-io-ext-manager {
+
+    @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
+    
+      h1.Online {
+        color: blue;
+        text-align: center;
+        font-size: 4rem;
+        padding: 20px;
+      }
+      h1.Offline {
+        color: red;
+        text-align: center;
+        font-size: 4rem;
+        padding: 20px;
+      }
+      
+}
