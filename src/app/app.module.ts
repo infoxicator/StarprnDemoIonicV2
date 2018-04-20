@@ -8,6 +8,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { PrinterService } from '../services/printer.service';
+import { ReceiptService } from '../services/receipt.service';
 import { AlertService } from '../services/alert.service';
 import { Camera } from '@ionic-native/camera';
 import { StarPRNT } from '@ionic-native/star-prnt';
@@ -33,6 +34,7 @@ import { StarPRNT } from '@ionic-native/star-prnt';
     Camera,
     StarPRNT,
     PrinterService,
+    ReceiptService,
     AlertService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

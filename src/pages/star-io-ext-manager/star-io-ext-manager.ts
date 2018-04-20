@@ -1,8 +1,9 @@
 import { Component, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform, AlertController } from 'ionic-angular';
 import { PrinterService } from '../../services/printer.service';
+import { ReceiptService } from '../../services/receipt.service';
 import { AlertService } from '../../services/alert.service';
-import { PrintObj, ImageObj } from '@ionic-native/star-prnt';
+import { PrintObj, ImageObj, RasterObj } from '@ionic-native/star-prnt';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @IonicPage({
@@ -23,7 +24,7 @@ export class StarIoExtManagerPage {
   drawerStatus = '';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private printerService:PrinterService, private alertService: AlertService, 
-    private zone: NgZone, private platform: Platform, public alertCtrl: AlertController, private camera:Camera) { 
+    private zone: NgZone, private platform: Platform, public alertCtrl: AlertController, private camera:Camera, private receiptService: ReceiptService) { 
 
     this.printerStatusSuscription = this.printerService.getStatus()
       .subscribe(printerStatus =>{
@@ -151,7 +152,7 @@ export class StarIoExtManagerPage {
     alert.addButton({
       text: 'OK',
       handler: paperSize => {
-        let rasterObj = this.printerService.rasterReceiptExample(paperSize);
+        let rasterObj = this.receiptService.rasterReceiptExample(paperSize);
         this.printRasterReceipt(rasterObj);
       }
     });
@@ -159,7 +160,7 @@ export class StarIoExtManagerPage {
 
   }
 
-  printRasterReceipt(rasterObj){
+  printRasterReceipt(rasterObj:RasterObj){
     let loading = this.alertService.createLoading("Communicating...");
     loading.present();  
 
