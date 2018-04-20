@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, ModalController } from 'ionic-angular';
-import { Camera, CameraOptions, DestinationType } from '@ionic-native/camera';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 import { PrinterService } from "../../services/printer.service";
 import { ReceiptService } from '../../services/receipt.service';
 import { AlertService } from '../../services/alert.service';
-import { PrintObj, ImageObj, CommandsArray, AlignmentPosition, RasterObj, CutPaperAction } from '@ionic-native/star-prnt';
+import { PrintObj, ImageObj, CommandsArray, RasterObj, CutPaperAction } from '@ionic-native/star-prnt';
 
 @Component({
   selector: 'page-home',

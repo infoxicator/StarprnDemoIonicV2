@@ -24,7 +24,7 @@
             <button ion-button full (click)="printRawText()" color="light">Raw Text</button>
         </ion-col>
         <ion-col>
-            <button ion-button full (click)="selectRasterReceipt()" color="light">Raster Receipt</button>
+            <button ion-button full (click)="printRasterReceipt()" color="light">Raster Receipt</button>
         </ion-col>
       </ion-row>
         <ion-row>
@@ -32,9 +32,17 @@
                 <button ion-button full (click)="openCashDrawer()" color="light">Open CashDrawer</button>
             </ion-col>
             <ion-col>
-                <button ion-button full (click)="selectRasterReceipt()" color="light">Print ICommandBuilder</button>
+                <button ion-button full (click)="print()" color="light">Print ICommandBuilder</button>
             </ion-col>
           </ion-row>
+          <ion-row>
+              <ion-col>
+                  <button ion-button full (click)="printHorizontalTab()" color="light">3" Horizontal Tab</button>
+              </ion-col>
+              <ion-col>
+                  <button ion-button full (click)="printQRCode()" color="light">QRCode</button>
+              </ion-col>
+            </ion-row>
           <ion-row>
               <ion-col>
                   <button ion-button full (click)="printFromCamera()" color="light">Camera</button>
@@ -45,7 +53,7 @@
             </ion-row>
           <ion-row>
               <ion-col>
-                  <button ion-button full (click)="printRawText()" color="light">Bitmap(ICommandBuilder)</button>
+                  <button ion-button full (click)="appendBitmap()" color="light">Bitmap(ICommandBuilder)</button>
               </ion-col>
               <ion-col>
                   <button ion-button full (click)="disconnect()" color="light">Disconnect</button>

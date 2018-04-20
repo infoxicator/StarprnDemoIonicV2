@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
-import { StarPRNT, Printer, Printers, PrinterStatus, PrintObj, RasterObj, ImageObj, CommandsArray } from '@ionic-native/star-prnt';
-import { Storage } from '@ionic/storage';
-import { Observable } from 'rxjs/Observable';
+import { StarPRNT, RasterObj, CommandsArray } from '@ionic-native/star-prnt';
 
 @Injectable()
 export class ReceiptService {
-    constructor (private starprnt: StarPRNT, private storage: Storage){  }
+    constructor (private starprnt: StarPRNT){  }
 
     /**
      * Generates and Returns a RasterObject example depending on the paper size

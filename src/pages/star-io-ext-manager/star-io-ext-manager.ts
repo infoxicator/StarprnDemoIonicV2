@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, Platform, AlertController } from '
 import { PrinterService } from '../../services/printer.service';
 import { ReceiptService } from '../../services/receipt.service';
 import { AlertService } from '../../services/alert.service';
-import { PrintObj, ImageObj, RasterObj } from '@ionic-native/star-prnt';
+import { PrintObj, ImageObj, RasterObj, CommandsArray, CutPaperAction } from '@ionic-native/star-prnt';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @IonicPage({
@@ -131,7 +131,7 @@ export class StarIoExtManagerPage {
       cutReceipt:true,
       openCashDrawer:false
     }
-    /*Send portName null here to use the connected printer instead of creating a new SMPort instance*/
+    /*Send portName null here to use the connected printer through StarIOExtManager instead of creating a new SMPort instance*/ 
     this.printerService.printRawText(null, this.defaultPrinter.emulation, printObj)
       .then(result => {
       loading.dismiss();
@@ -141,36 +141,41 @@ export class StarIoExtManagerPage {
         this.alertService.createAlert(error) })
   }
 
-  selectRasterReceipt(){
-    let alert = this.alertCtrl.create();
-    alert.setTitle('Select Paper Size');
-
-    alert.addInput({type: 'radio', label: '2" (384dots)', value: '2', checked: true });
-    alert.addInput({type: 'radio', label: '3" (576dots)', value: '3' });
-    alert.addInput({type: 'radio', label: '4" (832dots)', value: '4' });
-    alert.addButton('Cancel');
-    alert.addButton({
-      text: 'OK',
-      handler: paperSize => {
-        let rasterObj = this.receiptService.rasterReceiptExample(paperSize);
-        this.printRasterReceipt(rasterObj);
-      }
+  selectPaperSize():Promise<any>{
+    return new Promise((resolve, reject) => {
+      let alert = this.alertCtrl.create();
+      alert.setTitle('Select Paper Size');
+      alert.addInput({type: 'radio', label: '2" (384dots)', value: '2', checked: true });
+      alert.addInput({type: 'radio', label: '3" (576dots)', value: '3' });
+      alert.addInput({type: 'radio', label: '4" (832dots)', value: '4' });
+      alert.addButton('Cancel');
+      alert.addButton({
+        text: 'OK',
+        handler: paperSize => {
+          alert.dismiss().then(() => { resolve(paperSize); });
+          return false;
+        }
+      });
+      alert.present();
     });
-    alert.present();
-
   }
 
-  printRasterReceipt(rasterObj:RasterObj){
-    let loading = this.alertService.createLoading("Communicating...");
-    loading.present();  
+  printRasterReceipt(){
+      this.selectPaperSize().then(paperSize => {
+        let rasterObj:RasterObj = this.receiptService.rasterReceiptExample(paperSize);
+  
+          let loading = this.alertService.createLoading("Communicating...");
+          loading.present();
 
-    this.printerService.printRasterReceipt(null, this.defaultPrinter.emulation, rasterObj)
-      .then(result => {
-      loading.dismiss();
-      this.alertService.createAlert("Success!", "Communication Result: ") })
-      .catch(error => {
-        loading.dismiss();
-        this.alertService.createAlert(error) })
+          /*Send portName null here to use the connected printer through StarIOExtManager instead of creating a new SMPort instance*/  
+          this.printerService.printRasterReceipt(null, this.defaultPrinter.emulation, rasterObj)
+            .then(result => {
+              loading.dismiss();
+              this.alertService.createAlert("Success!", "Communication Result: ") })
+            .catch(error => {
+              loading.dismiss();
+              this.alertService.createAlert(error) })
+        })   
   }
 
   printImage(uri:string){
@@ -226,6 +231,111 @@ export class StarIoExtManagerPage {
     }, (err) => {
       this.alertService.createAlert(err, 'Photo Library Error: ');
     });
+  }
+
+  print(){
+
+      this.selectPaperSize().then(paperSize => {
+        let commands:CommandsArray = this.receiptService.getExampleReceipt(paperSize);    
+
+        let loading = this.alertService.createLoading("Communicating...");
+        loading.present();   
+    
+        /*Send portName null here to use the connected printer through StarIOExtManager instead of creating a new SMPort instance*/ 
+        this.printerService.print(null, this.defaultPrinter.emulation, commands)
+          .then(result => {
+            loading.dismiss();
+            this.alertService.createAlert("Success!", "Communication Result: ") })
+          .catch(error => {
+            loading.dismiss();
+            this.alertService.createAlert(error) 
+          })
+        })
+  }
+
+  printHorizontalTab(){
+    
+        //generate Commands for a 3 inches receipt using horizontal tabs
+        let commands:CommandsArray = this.receiptService.getExampleReceipt('3', true);    
+
+        let loading = this.alertService.createLoading("Communicating...");
+        loading.present();   
+    
+        /*Send portName null here to use the connected printer through StarIOExtManager instead of creating a new SMPort instance*/ 
+        this.printerService.print(null, this.defaultPrinter.emulation, commands)
+          .then(result => {
+            loading.dismiss();
+            this.alertService.createAlert("Success!", "Communication Result: ") })
+          .catch(error => {
+            loading.dismiss();
+            this.alertService.createAlert(error) 
+          })
+  }
+
+  printQRCode(){
+   
+    this.selectPaperSize().then(paperSize => {
+        //generate Commands receipts using QrCodes
+        let commands:CommandsArray = this.receiptService.getExampleReceipt(paperSize, false, true);    
+
+        let loading = this.alertService.createLoading("Communicating...");
+        loading.present();
+
+        /*Send portName null here to use the connected printer through StarIOExtManager instead of creating a new SMPort instance*/ 
+        this.printerService.print(null, this.defaultPrinter.emulation, commands)
+          .then(result => {
+            loading.dismiss();
+            this.alertService.createAlert("Success!", "Communication Result: ") })
+          .catch(error => {
+            loading.dismiss();
+            this.alertService.createAlert(error) 
+          })
+        })
+  }
+
+  appendBitmap(){
+    if(this.defaultPrinter){
+
+          const options: CameraOptions = {
+            quality: 100,
+            destinationType: this.camera.DestinationType.FILE_URI,
+            encodingType: this.camera.EncodingType.JPEG,
+            mediaType: this.camera.MediaType.PICTURE,
+            sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
+          }
+
+          this.selectPaperSize().then(paperSize => {
+            let imageWidth:number = 576;
+            if(paperSize == '2') { imageWidth = 384 }
+            else if (paperSize == '3') { imageWidth = 576 }
+            else if (paperSize == '4') { imageWidth = 832 }
+
+          this.camera.getPicture(options).then((uri) => {
+            
+            let commands:CommandsArray = [];
+            commands.push({appendBitmap:uri, diffusion:true, width:imageWidth, bothScale:true });
+            commands.push({appendCutPaper:CutPaperAction.PartialCutWithFeed});       
+
+                let loading = this.alertService.createLoading("Communicating...");
+                loading.present();
+                   
+              /*Send portName null here to use the connected printer through StarIOExtManager instead of creating a new SMPort instance*/ 
+                this.printerService.print(null, this.defaultPrinter.emulation, commands)
+                  .then(result => {
+                    loading.dismiss();
+                    this.alertService.createAlert("Success!", "Communication Result: ") 
+                  }).catch(error => {
+                    loading.dismiss();
+                    this.alertService.createAlert(error) 
+                  })
+          }).catch(err => {
+            this.alertService.createAlert(err);
+          });
+        });    
+
+    }else{
+      this.alertService.createAlert("Please select a printer!");
+    }  
   }
 
   openCashDrawer(){

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { PrinterService } from "../../services/printer.service";
 import { AlertService } from '../../services/alert.service';
-import { Printer, Printers } from '@ionic-native/star-prnt';
+import { Printers } from '@ionic-native/star-prnt';
 
 @IonicPage({
   name:'printer-list',
