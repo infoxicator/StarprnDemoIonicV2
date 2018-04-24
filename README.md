@@ -110,32 +110,32 @@ let printObj:PrintObj = {
 
 ### Classes
 
-* [StarPRNT](../docs/classes/_index_d_.starprnt.md)
+* [StarPRNT](docs/classes/_index_d_.starprnt.md)
 
 ### Interfaces
 
-* [CommandsArray](../docs/interfaces/_index_d_.commandsarray.md)
-* [ImageObj](../docs/interfaces/_index_d_.imageobj.md)
-* [PrintCommand](../docs/interfaces/_index_d_.printcommand.md)
-* [PrintObj](../docs/interfaces/_index_d_.printobj.md)
-* [Printer](../docs/interfaces/_index_d_.printer.md)
-* [PrinterStatus](../docs/interfaces/_index_d_.printerstatus.md)
-* [Printers](../docs/interfaces/_index_d_.printers.md)
-* [RasterObj](../docs/interfaces/_index_d_.rasterobj.md)
+* [CommandsArray](docs/interfaces/_index_d_.commandsarray.md)
+* [ImageObj](docs/interfaces/_index_d_.imageobj.md)
+* [PrintCommand](docs/interfaces/_index_d_.printcommand.md)
+* [PrintObj](docs/interfaces/_index_d_.printobj.md)
+* [Printer](docs/interfaces/_index_d_.printer.md)
+* [PrinterStatus](docs/interfaces/_index_d_.printerstatus.md)
+* [Printers](docs/interfaces/_index_d_.printers.md)
+* [RasterObj](docs/interfaces/_index_d_.rasterobj.md)
 
 ### Enumerations
 
-* [AlignmentPosition](../docs/enums/_index_d_.alignmentposition.md)
-* [BarcodeSymbology](../docs/enums/_index_d_.barcodesymbology.md)
-* [BarcodeWidth](../docs/enums/_index_d_.barcodewidth.md)
-* [BitmapConverterRotation](../docs/enums/_index_d_.bitmapconverterrotation.md)
-* [BlackMarkType](../docs/enums/_index_d_.blackmarktype.md)
-* [CutPaperAction](../docs/enums/_index_d_.cutpaperaction.md)
-* [FontStyleType](../docs/enums/_index_d_.fontstyletype.md)
-* [InternationalType](../docs/enums/_index_d_.internationaltype.md)
-* [LogoSize](../docs/enums/_index_d_.logosize.md)
-* [QrCodeLevel](../docs/enums/_index_d_.qrcodelevel.md)
-* [QrCodeModel](../docs/enums/_index_d_.qrcodemodel.md)
+* [AlignmentPosition](docs/enums/_index_d_.alignmentposition.md)
+* [BarcodeSymbology](docs/enums/_index_d_.barcodesymbology.md)
+* [BarcodeWidth](docs/enums/_index_d_.barcodewidth.md)
+* [BitmapConverterRotation](docs/enums/_index_d_.bitmapconverterrotation.md)
+* [BlackMarkType](docs/enums/_index_d_.blackmarktype.md)
+* [CutPaperAction](docs/enums/_index_d_.cutpaperaction.md)
+* [FontStyleType](docs/enums/_index_d_.fontstyletype.md)
+* [InternationalType](docs/enums/_index_d_.internationaltype.md)
+* [LogoSize](docs/enums/_index_d_.logosize.md)
+* [QrCodeLevel](docs/enums/_index_d_.qrcodelevel.md)
+* [QrCodeModel](docs/enums/_index_d_.qrcodemodel.md)
 
 ---
 
