@@ -10,12 +10,12 @@ export interface Printer {
      */
     macAddress?: string;
     /**
-    * Printer port name used to create a new port instance of SMPort or StarIOExtManager
-    */
+     * Printer port name used to create a new port instance of SMPort or StarIOExtManager
+     */
     portName?: string;
     /**
-   * USB Serial Number (USB Printers Only)
-   */
+     * USB Serial Number (USB Printers Only)
+     */
     USBSerialNumber?: string;
 }
 /**
@@ -33,12 +33,12 @@ export interface PrinterStatus {
      */
     ModelName?: string;
     /**
-    * Printer cover status
-    */
+     * Printer cover status
+     */
     coverOpen?: boolean;
     /**
-   * Printer Paper Cutter status
-   */
+     * Printer Paper Cutter status
+     */
     cutterError?: boolean;
     /**
      * Printer Paper status
@@ -59,8 +59,8 @@ export interface PrintObj {
      */
     cutReceipt?: boolean;
     /**
-    * sends a appendPeripheral command to the printer for channels No1 and No2 - Defaults to true
-    */
+     * sends a appendPeripheral command to the printer for channels No1 and No2 - Defaults to true
+     */
     openCashDrawer?: boolean;
 }
 export interface RasterObj extends PrintObj {
@@ -75,8 +75,8 @@ export interface RasterObj extends PrintObj {
 }
 export interface ImageObj {
     /**
-    * Image URI to print, this can be obtained via the camera or photo library or as a static resource saved on the phone memory
-    */
+     * Image URI to print, this can be obtained via the camera or photo library or as a static resource saved on the phone memory
+     */
     uri: string;
     /**
      * Image width (Units: Dots) defaults to 576
@@ -87,14 +87,14 @@ export interface ImageObj {
      */
     cutReceipt?: boolean;
     /**
-    * sends a appendPeripheral command to the printer for channels No1 and No2 - Defaults to true
-    */
+     * sends a appendPeripheral command to the printer for channels No1 and No2 - Defaults to true
+     */
     openCashDrawer?: boolean;
 }
 export interface PrintCommand {
     /**
-    * Data (Text and Command) is added to the command buffer. Example: {append:"Star Clothing Boutique\n123 Star Road\nCity, State 12345\n\n"}
-    */
+     * Data (Text and Command) is added to the command buffer. Example: {append:"Star Clothing Boutique\n123 Star Road\nCity, State 12345\n\n"}
+     */
     append?: string;
     /**
      * Data (Text and Command) is added to the command buffer. Example: {appendRaw:"Star Clothing Boutique\n123 Star Road\nCity, State 12345\n\n"}
@@ -142,43 +142,43 @@ export interface PrintCommand {
      */
     appendFontStyle?: string;
     /**
-    * Paper cut command is generated and added to the command buffer.
-    * Choose the format of the return value defined in StarPRNT.CutPaperAction or the CutPaperAction enum. 'FullCut' | 'FullCutWithFeed' | 'PartialCut' | 'PartialCutWithFeed'
-    * Example: {appendCutPaper:CutPaperAction.PartialCutWithFeed}
-    */
+     * Paper cut command is generated and added to the command buffer.
+     * Choose the format of the return value defined in StarPRNT.CutPaperAction or the CutPaperAction enum. 'FullCut' | 'FullCutWithFeed' | 'PartialCut' | 'PartialCutWithFeed'
+     * Example: {appendCutPaper:CutPaperAction.PartialCutWithFeed}
+     */
     appendCutPaper?: string;
     /**
-    * Black mark command is generated and added to the command buffer.
-    * Choose the format of the return value defined in StarPRNT.BlackMarkType or the BlackMarkType enum. 'Valid' | 'Invalid' | 'ValidWithDetection'
-    * Example: {appendBlackMark: BlackMarkType.Valid}
-    */
+     * Black mark command is generated and added to the command buffer.
+     * Choose the format of the return value defined in StarPRNT.BlackMarkType or the BlackMarkType enum. 'Valid' | 'Invalid' | 'ValidWithDetection'
+     * Example: {appendBlackMark: BlackMarkType.Valid}
+     */
     appendBlackMark?: string;
     /**
-    * Absolute position command is generated and added to the command buffer. (Unit: Dots). Send in conjunction with the data property to append absolute position just to that string
-    * Example1: Append data with Absolute position {appendAbsolutePosition:40, data: "Text with absolute position"}
-    * Example2: Append absolute position to subsequent commands: {appendAbsolutePosition:40}
-    */
+     * Absolute position command is generated and added to the command buffer. (Unit: Dots). Send in conjunction with the data property to append absolute position just to that string
+     * Example1: Append data with Absolute position {appendAbsolutePosition:40, data: "Text with absolute position"}
+     * Example2: Append absolute position to subsequent commands: {appendAbsolutePosition:40}
+     */
     appendAbsolutePosition?: number;
     /**
-    * Alignment command is generated and added to the command buffer. Send in conjunction with the data property to append alignment position just to that string
-    * Choose the format of the return value defined in StarPRNT.AlignmentPosition or the AlignmentPosition enum. 'Left' | 'Center' | 'Right'.
-    * Example1 Append data with Alignment position: {appendAlignment:AlignmentPosition.Center, data: "Text with centered position"}
-    * Example2 Append absolute position to subsequent commands: {appendAlignment:AlignmentPosition.Center}
-    */
+     * Alignment command is generated and added to the command buffer. Send in conjunction with the data property to append alignment position just to that string
+     * Choose the format of the return value defined in StarPRNT.AlignmentPosition or the AlignmentPosition enum. 'Left' | 'Center' | 'Right'.
+     * Example1 Append data with Alignment position: {appendAlignment:AlignmentPosition.Center, data: "Text with centered position"}
+     * Example2 Append absolute position to subsequent commands: {appendAlignment:AlignmentPosition.Center}
+     */
     appendAlignment?: string;
     /**
-   * Horizontal tab set/clear command is generated and added to the command buffer. (Only works for certain printer models, check the starSDK documentation for details)
-   * Array of horizontal tab positions (Units: ANK character pitch). Specifying empty array deletes all currently set horizontal tab positions.
-   * Example: {appendHorizontalTabPosition:[15, 35]}
-   * Delete positions Example: {appendHorizontalTabPosition:[]}
-   */
+     * Horizontal tab set/clear command is generated and added to the command buffer. (Only works for certain printer models, check the starSDK documentation for details)
+     * Array of horizontal tab positions (Units: ANK character pitch). Specifying empty array deletes all currently set horizontal tab positions.
+     * Example: {appendHorizontalTabPosition:[15, 35]}
+     * Delete positions Example: {appendHorizontalTabPosition:[]}
+     */
     appendHorizontalTabPosition?: Array<number>;
     /**
-   * Print command of the logo is generated and added to the command buffer. The logo has to be uploaded to the printer using the Star Print utility.
-   * Send in conjuction with the logoSize property to set the logo size
-   * Example: {appendLogo:1}
-   * Example with LogoSize: {appendLogo:1, logoSize:LogoSize.DoubleWidthDoubleHeight}
-   */
+     * Print command of the logo is generated and added to the command buffer. The logo has to be uploaded to the printer using the Star Print utility.
+     * Send in conjuction with the logoSize property to set the logo size
+     * Example: {appendLogo:1}
+     * Example with LogoSize: {appendLogo:1, logoSize:LogoSize.DoubleWidthDoubleHeight}
+     */
     appendLogo?: number;
     /**
      * Property to be used with the appendLogo command.
@@ -195,11 +195,11 @@ export interface PrintCommand {
      */
     appendBarcode?: string;
     /**
-    * Property to be used with the appendBarcode command.
-    * Choose the format of the return value defined in StarPRNT.BarcodeSymbology or the BarcodeSymbology enum.
-    * 'Code128' | 'Code39' | 'Code93' | 'ITF' | 'JAN8' | 'JAN13' | 'NW7' | 'UPCA' | 'UPCE' |
-    * Example: {appendBarcode:'{BStar', BarcodeSymbology:BarcodeSymbology.Code128}
-    */
+     * Property to be used with the appendBarcode command.
+     * Choose the format of the return value defined in StarPRNT.BarcodeSymbology or the BarcodeSymbology enum.
+     * 'Code128' | 'Code39' | 'Code93' | 'ITF' | 'JAN8' | 'JAN13' | 'NW7' | 'UPCA' | 'UPCE' |
+     * Example: {appendBarcode:'{BStar', BarcodeSymbology:BarcodeSymbology.Code128}
+     */
     BarcodeSymbology?: string;
     /**
      * Property to be used with the appendBarcode command.
@@ -227,25 +227,25 @@ export interface PrintCommand {
      */
     width?: number;
     /**
-    * Property to be used with the appendBitmap command, the appendBarcode command, or the appendQrCode command (Units:Dots)
-    * appendBitmap Example: {appendBitmap:uri, absolutePosition:40}.
-    * appendBarcode Example: {appendBarcode:'{BStar', absolutePosition:40}.
-    * appendQrCode Example: {appendQrCode:'{BStar', absolutePosition:40}.
-    */
+     * Property to be used with the appendBitmap command, the appendBarcode command, or the appendQrCode command (Units:Dots)
+     * appendBitmap Example: {appendBitmap:uri, absolutePosition:40}.
+     * appendBarcode Example: {appendBarcode:'{BStar', absolutePosition:40}.
+     * appendQrCode Example: {appendQrCode:'{BStar', absolutePosition:40}.
+     */
     absolutePosition?: number;
     /**
-    * Property to be used with the appendBitmap command, the appendBarcode command, or the appendQrCode command (Units:Dots)
-    * Choose the format of the return value defined in StarPRNT.AlignmentPosition or the AlignmentPosition enum. 'Left' | 'Center' | 'Right'.
-    * appendBitmap Example: {appendBitmap:uri, alignment:AlignmentPosition.Center}.
-    * appendBarcode Example: {appendBarcode:'{BStar', alignment:AlignmentPosition.Center}.
-    * appendQrCode Example: {appendQrCode:'{BStar', alignment:AlignmentPosition.Center}.
-    */
+     * Property to be used with the appendBitmap command, the appendBarcode command, or the appendQrCode command (Units:Dots)
+     * Choose the format of the return value defined in StarPRNT.AlignmentPosition or the AlignmentPosition enum. 'Left' | 'Center' | 'Right'.
+     * appendBitmap Example: {appendBitmap:uri, alignment:AlignmentPosition.Center}.
+     * appendBarcode Example: {appendBarcode:'{BStar', alignment:AlignmentPosition.Center}.
+     * appendQrCode Example: {appendQrCode:'{BStar', alignment:AlignmentPosition.Center}.
+     */
     alignment?: string;
     /**
-   * Select command of the multiple mode is generated and added to the command buffer.
-   * Additional properties: width:number, height:number
-   * Example: {appendMultiple:"   $156.95\n", width:2, height:2}.
-   */
+     * Select command of the multiple mode is generated and added to the command buffer.
+     * Additional properties: width:number, height:number
+     * Example: {appendMultiple:"   $156.95\n", width:2, height:2}.
+     */
     appendMultiple?: string;
     /**
      * Print command of the QR code is generated and added to the command buffer.
@@ -262,10 +262,10 @@ export interface PrintCommand {
      */
     QrCodeModel?: string;
     /**
-    * Property to be used with the appendQrCode command.
-    * Choose the format of the return value defined in StarPRNT.QrCodeLevel or the QrCodeLevel enum. 'No1' | 'No2'. Default 'H'
-    * Example: {appendQrCode:'{BStar', QrCodeLevel:QrCodeLevel.H}
-    */
+     * Property to be used with the appendQrCode command.
+     * Choose the format of the return value defined in StarPRNT.QrCodeLevel or the QrCodeLevel enum. 'No1' | 'No2'. Default 'H'
+     * Example: {appendQrCode:'{BStar', QrCodeLevel:QrCodeLevel.H}
+     */
     QrCodeLevel?: string;
     /**
      * Property to be used with the appendQrCode command. QRCode Cell size. Default 4.
@@ -273,18 +273,18 @@ export interface PrintCommand {
      */
     cell?: number;
     /**
-    * Print command of the bitmap is generated and added to the command buffer. Takes a string image URI
-    * this can be obtained via the camera or photo library or as a static resource saved on the phone memory.
-    * Additional Properties: diffusion, width, bothScale, rotation, absolutePosition, alignment.
-    * Example: {appendBitmap:uri, diffusion: true, width:576, bothScale: true}
-    * Example with absolutePosition: {appendBitmap:uri, diffusion: true, width:576, bothScale: true, absolutePosition: 40 }.
-    * Example with alignment: {appendBitmap:uri, diffusion: true, width:576, bothScale: true, alignment:"Center" }.
-    */
+     * Print command of the bitmap is generated and added to the command buffer. Takes a string image URI
+     * this can be obtained via the camera or photo library or as a static resource saved on the phone memory.
+     * Additional Properties: diffusion, width, bothScale, rotation, absolutePosition, alignment.
+     * Example: {appendBitmap:uri, diffusion: true, width:576, bothScale: true}
+     * Example with absolutePosition: {appendBitmap:uri, diffusion: true, width:576, bothScale: true, absolutePosition: 40 }.
+     * Example with alignment: {appendBitmap:uri, diffusion: true, width:576, bothScale: true, alignment:"Center" }.
+     */
     appendBitmap?: string;
     /**
-    * Property to be used with the appendBitmap command. Random dither: true = Valid, false = Invalid. Default true.
-    * Example: {appendBitmap:uri, diffusion: false }
-    */
+     * Property to be used with the appendBitmap command. Random dither: true = Valid, false = Invalid. Default true.
+     * Example: {appendBitmap:uri, diffusion: false }
+     */
     diffusion?: boolean;
     /**
      * Property to be used with the appendBitmap command. Height is changed according to the conversion rate of the width property.
@@ -300,8 +300,8 @@ export interface PrintCommand {
      */
     rotation?: string;
     /**
-    * sends a appendPeripheral command to the printer for channel number: Example: 1 = No1, 2 = No2
-    */
+     * sends a appendPeripheral command to the printer for channel number: Example: 1 = No1, 2 = No2
+     */
     openCashDrawer?: number;
 }
 /**
@@ -326,8 +326,8 @@ export declare enum InternationalType {
     Legal = "Legal",
 }
 /**
-  * FontStyleType constants.
-  */
+ * FontStyleType constants.
+ */
 export declare enum FontStyleType {
     /** Font-A (12 x 24 dots) / Specify 7 x 9 font (half dots) */
     A = "A",
@@ -352,8 +352,8 @@ export declare enum BlackMarkType {
     ValidWithDetection = "ValidWithDetection",
 }
 /**
-  * LogoSize constants
-  */
+ * LogoSize constants
+ */
 export declare enum LogoSize {
     Normal = "Normal",
     DoubleWidth = "DoubleWidth",
@@ -361,16 +361,16 @@ export declare enum LogoSize {
     DoubleWidthDoubleHeight = "DoubleWidthDoubleHeight",
 }
 /**
-  * AlignmentPosition constants
-  */
+ * AlignmentPosition constants
+ */
 export declare enum AlignmentPosition {
     Left = "Left",
     Center = "Center",
     Right = "Right",
 }
 /**
-  * BarcodeSymbology constants
-*/
+ * BarcodeSymbology constants
+ */
 export declare enum BarcodeSymbology {
     Code128 = "Code128",
     Code39 = "Code39",
@@ -383,8 +383,8 @@ export declare enum BarcodeSymbology {
     UPCE = "UPCE",
 }
 /**
-  * BarcodeWidth constants
-*/
+ * BarcodeWidth constants
+ */
 export declare enum BarcodeWidth {
     Mode1 = "Mode1",
     Mode2 = "Mode2",
@@ -397,15 +397,15 @@ export declare enum BarcodeWidth {
     Mode9 = "Mode9",
 }
 /**
-  * QrCodeModel constants
-*/
+ * QrCodeModel constants
+ */
 export declare enum QrCodeModel {
     No1 = "No1",
     No2 = "No2",
 }
 /**
-  * QrCodeLevel constants
-*/
+ * QrCodeLevel constants
+ */
 export declare enum QrCodeLevel {
     H = "H",
     L = "L",
@@ -413,8 +413,8 @@ export declare enum QrCodeLevel {
     Q = "Q",
 }
 /**
-  * BitmapConverterRotation constants
-*/
+ * BitmapConverterRotation constants
+ */
 export declare enum BitmapConverterRotation {
     Normal = "Normal",
     Left90 = "Left90",
@@ -422,14 +422,14 @@ export declare enum BitmapConverterRotation {
     Rotate180 = "Rotate180",
 }
 /**
-  * Push a new PrintCommand object to the array for a separate instruction to the printer. Example [{append:"text"}, {"openCashDrawer: 1"}]
-  */
+ * Push a new PrintCommand object to the array for a separate instruction to the printer. Example [{append:"text"}, {"openCashDrawer: 1"}]
+ */
 export interface CommandsArray extends Array<PrintCommand> {
 }
 /**
  * @name StarPRNT
  * @description
- * * Ionic Native wrappers for the starprnt cordova plugin for Star Micronics bluetooth/LAN printers
+ * * Ionic Native wrappers for the starprnt cordova plugin for Star Micronics Bluetooth/LAN printers
  *
  * @usage
  * ```typescript
@@ -478,7 +478,7 @@ export declare class StarPRNT extends IonicNativePlugin {
     };
     /**
      * Constant for possible CutPaperAction
-    */
+     */
     CutPaperAction: {
         FullCut: string;
         FullCutWithFeed: string;
@@ -487,7 +487,7 @@ export declare class StarPRNT extends IonicNativePlugin {
     };
     /**
      * Constant for possible BlackMarkType
-    */
+     */
     BlackMarkType: {
         Valid: string;
         Invalid: string;
@@ -495,7 +495,7 @@ export declare class StarPRNT extends IonicNativePlugin {
     };
     /**
      * Constant for possible AlignmentPosition
-    */
+     */
     AlignmentPosition: {
         Left: string;
         Center: string;
@@ -503,7 +503,7 @@ export declare class StarPRNT extends IonicNativePlugin {
     };
     /**
      * Constant for possible LogoSize
-    */
+     */
     LogoSize: {
         Normal: string;
         DoubleWidth: string;
@@ -512,7 +512,7 @@ export declare class StarPRNT extends IonicNativePlugin {
     };
     /**
      * Constant for possible BarcodeSymbology
-    */
+     */
     BarcodeSymbology: {
         Code128: string;
         Code39: string;
@@ -525,8 +525,8 @@ export declare class StarPRNT extends IonicNativePlugin {
         UPCE: string;
     };
     /**
-      * Constant for possible BarcodeWidth
-    */
+     * Constant for possible BarcodeWidth
+     */
     BarcodeWidth: {
         Mode1: string;
         Mode2: string;
@@ -539,15 +539,15 @@ export declare class StarPRNT extends IonicNativePlugin {
         Mode9: string;
     };
     /**
-      * Constant for possible QrCodeModel
-    */
+     * Constant for possible QrCodeModel
+     */
     QrCodeModel: {
         No1: string;
         No2: string;
     };
     /**
-      * Constant for possible QrCodeLevel
-    */
+     * Constant for possible QrCodeLevel
+     */
     QrCodeLevel: {
         H: string;
         L: string;
@@ -555,8 +555,8 @@ export declare class StarPRNT extends IonicNativePlugin {
         Q: string;
     };
     /**
-      * Constant for possible BitmapConverterRotation
-    */
+     * Constant for possible BitmapConverterRotation
+     */
     BitmapConverterRotation: {
         Normal: string;
         Left90: string;
@@ -564,68 +564,68 @@ export declare class StarPRNT extends IonicNativePlugin {
         Rotate180: string;
     };
     /**
-       * Find printers available
-       * @param type {string} Iterface Type: All, LAN, Bluetooth, USB
-       * @return {Promise<Printers>} Returns a promise that resolves with an array of printers
-    */
+     * Find available printers
+     * @param {string} type  Interface Type: All, LAN, Bluetooth, USB
+     * @return {Promise<Printers>} Returns a promise that resolves with an array of printers
+     */
     portDiscovery(type: string): Promise<Printers>;
     /**
-      * Checks the status of the printer
-      * @param port {string} printer name i.e BT:StarMicronics
-      * @param emulation {string} StarPrinter Emulation type: "StarPRNT", "StarPRNTL", "StarLine", "StarGraphic", "EscPos", "EscPosMobile", "StarDotImpact"
-      * @return {Promise<PrinterStatus>} Returns a promise that resolves with the PrinterStatus object
-      */
+     * Checks the status of the printer
+     * @param {string} port  Printer name i.e BT:StarMicronics
+     * @param {string} emulation  StarPrinter Emulation type: "StarPRNT", "StarPRNTL", "StarLine", "StarGraphic", "EscPos", "EscPosMobile", "StarDotImpact"
+     * @return {Promise<PrinterStatus>} Returns a promise that resolves with the PrinterStatus object
+     */
     checkStatus(port: string, emulation: string): Promise<PrinterStatus>;
     /**
      * Prints plain text
-     * @param port {string} printer name i.e BT:StarMicronics. Send null to use a printer connected via StarIOExtManager using the connect() function
-     * @param emulation {string} StarPrinter Emulation type: "StarPRNT", "StarPRNTL", "StarLine", "StarGraphic", "EscPos", "EscPosMobile", "StarDotImpact"
-     * @param printObj {PrintObj} text:string, cutReceipt?:boolean, openCashDrawer?:boolean
+     * @param {string} port  Printer name i.e BT:StarMicronics. Send null to use a printer connected via StarIOExtManager using the connect() function
+     * @param {string} emulation  StarPrinter Emulation type: "StarPRNT", "StarPRNTL", "StarLine", "StarGraphic", "EscPos", "EscPosMobile", "StarDotImpact"
+     * @param {PrintObj} printObj  text:string, cutReceipt?:boolean, openCashDrawer?:boolean
      * @return {Promise<any>} Success! if printed correctly or error message string returned by the SDK.
      */
     printRawText(port: string, emulation: string, printObj: PrintObj): Promise<any>;
     /**
      * Converts the text into a bitmap image and sends it to the printer
-     * @param port {string} printer name i.e BT:StarMicronics.  Send null to use a printer connected via StarIOExtManager using the connect() function
-     * @param emulation {string} StarPrinter Emulation type: "StarPRNT", "StarPRNTL", "StarLine", "StarGraphic", "EscPos", "EscPosMobile", "StarDotImpact"
-     * @param rasterObj {RasterObj} text:string, cutReceipt?:boolean, openCashDrawer?:boolean, fontSize:number, paperWidth:number
+     * @param {string} port  Printer name i.e BT:StarMicronics.  Send null to use a printer connected via StarIOExtManager using the connect() function
+     * @param {string} emulation  StarPrinter Emulation type: "StarPRNT", "StarPRNTL", "StarLine", "StarGraphic", "EscPos", "EscPosMobile", "StarDotImpact"
+     * @param {RasterObj} rasterObj  text:string, cutReceipt?:boolean, openCashDrawer?:boolean, fontSize:number, paperWidth:number
      * @return {Promise<any>} Success! if printed correctly or error message string returned by the SDK.
      */
     printRasterReceipt(port: string, emulation: string, rasterObj: RasterObj): Promise<any>;
     /**
      * Gets an image from a string URI and converts it to bitmap to send it to the printer
-     * @param port {string} printer name i.e BT:StarMicronics.  Send null to use a printer connected via StarIOExtManager using the connect() function
-     * @param emulation {string} StarPrinter Emulation type: "StarPRNT", "StarPRNTL", "StarLine", "StarGraphic", "EscPos", "EscPosMobile", "StarDotImpact"
-     * @param imageObj {ImageObj} uri:string, paperWidth?:number, cutReceipt?:boolean, openCashDrawer?:boolean
+     * @param {string} port Printer name i.e BT:StarMicronics.  Send null to use a printer connected via StarIOExtManager using the connect() function
+     * @param {string} emulation  StarPrinter Emulation type: "StarPRNT", "StarPRNTL", "StarLine", "StarGraphic", "EscPos", "EscPosMobile", "StarDotImpact"
+     * @param {ImageObj} imageObj  uri:string, paperWidth?:number, cutReceipt?:boolean, openCashDrawer?:boolean
      * @return {Promise<any>} Success! if printed correctly or error message string returned by the SDK.
      */
     printImage(port: string, emulation: string, imageObj: ImageObj): Promise<any>;
     /**
      * sends an appendPeripheral command to the printer for channels No1 and No2
-     * @param port {string} printer name i.e BT:StarMicronics.  Send null to use a printer connected via StarIOExtManager using the connect() function
-     * @param emulation {string} StarPrinter Emulation type: "StarPRNT", "StarPRNTL", "StarLine", "StarGraphic", "EscPos", "EscPosMobile", "StarDotImpact"
+     * @param {string} port  Printer name i.e BT:StarMicronics.  Send null to use a printer connected via StarIOExtManager using the connect() function
+     * @param {string} emulation  StarPrinter Emulation type: "StarPRNT", "StarPRNTL", "StarLine", "StarGraphic", "EscPos", "EscPosMobile", "StarDotImpact"
      * @return {Promise<any>} Success! if opened or error message string returned by the SDK.
      */
     openCashDrawer(port: string, emulation: string): Promise<any>;
     /**
- * Sends an Array of commands to the command buffer using the Android ICommandBuilderInterface or iOS ISCBBuilderInterface
- * @param port {string} printer name i.e BT:StarMicronics.  Send null to use a printer connected via StarIOExtManager using the connect() function
- * @param emulation {string} StarPrinter Emulation type: "StarPRNT", "StarPRNTL", "StarLine", "StarGraphic", "EscPos", "EscPosMobile", "StarDotImpact"
- * @param commandsArray {CommandsArray} each command in the array should be an instance of the PrintCommand object. Example [{append:"text"}, {"openCashDrawer: 1"}]
- * @return {Promise<any>} Success! if printed correctly or error message string returned by the SDK.
- */
+     * Sends an Array of commands to the command buffer using the Android ICommandBuilderInterface or iOS ISCBBuilderInterface
+     * @param {string} port  Printer name i.e BT:StarMicronics.  Send null to use a printer connected via StarIOExtManager using the connect() function
+     * @param {string} emulation  StarPrinter Emulation type: "StarPRNT", "StarPRNTL", "StarLine", "StarGraphic", "EscPos", "EscPosMobile", "StarDotImpact"
+     * @param {CommandsArray} commandsArray  each command in the array should be an instance of the PrintCommand object. Example [{append:"text"}, {"openCashDrawer: 1"}]
+     * @return {Promise<any>} Success! if printed correctly or error message string returned by the SDK.
+     */
     print(port: string, emulation: string, commandsArray: CommandsArray): Promise<any>;
     /**
-    * Allows you to connect to the printer, keep the connection alive and receive status updates through an observable
-    * @param port {string} printer name i.e BT:StarMicronics.
-    * @param emulation {string} StarPrinter Emulation type: "StarPRNT", "StarPRNTL", "StarLine", "StarGraphic", "EscPos", "EscPosMobile", "StarDotImpact"
-    * @return {Observable<any>} Success! if connected or error message string returned by the SDK.
-    */
+     * Allows you to connect to the printer, keep the connection alive and receive status updates through an observable
+     * @param {string} port  printer name i.e BT:StarMicronics.
+     * @param {string} emulation  StarPrinter Emulation type: "StarPRNT", "StarPRNTL", "StarLine", "StarGraphic", "EscPos", "EscPosMobile", "StarDotImpact"
+     * @return {Observable<any>} Success! if connected or error message string returned by the SDK.
+     */
     connect(port: string, emulation: string): Observable<any>;
     /**
-    * Returns an observable with the device status events. Only fires when a printer is connnected through the connect() function
-    * @return {Observable<any>} dataType: printerOnline, printerOffline, printerImpossible, printerPaperEmpty, printerPaperNearEmpty, printerPaperReady, printerCoverOpen, printerCoverClose, cashDrawerOpen, cashDrawerClose
-    */
+     * Returns an observable with the device status events. Only fires when a printer is connnected through the connect() function
+     * @return {Observable<any>} dataType: printerOnline, printerOffline, printerImpossible, printerPaperEmpty, printerPaperNearEmpty, printerPaperReady, printerCoverOpen, printerCoverClose, cashDrawerOpen, cashDrawerClose
+     */
     getStatus(): Observable<any>;
     /**
      * Allows to disconnect (close the connection to the peripherals), this is useful to avoid keeping alive a connection when not in the app to save device battery

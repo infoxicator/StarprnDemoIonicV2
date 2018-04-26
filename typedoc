@@ -1,0 +1,1 @@
+typedoc --theme markdown --includeDeclarations --excludeExternals  --out docs node_modules/\@ionic-native/star-prnt/index.d.ts

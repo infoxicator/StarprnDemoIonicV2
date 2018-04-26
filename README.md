@@ -10,9 +10,15 @@ Install the Cordova and Ionic Native plugins:
 
 `npm install --save @ionic-native/star-prnt`
 
+**Important** 
+
+
+The ionic-native plugin is not available through npm yet, in the meantime download a copy here [star-prnt](star-prnt) and place it in your app node_modules/@ionic-native directory
+
+
 Add this plugin to your app's module
 
-**usage**:     import { StarPRNT } from '@ionic-native/starprnt';
+**usage**:     import { StarPRNT } from '@ionic-native/star-prnt';
     
     
     constructor(private starprnt: StarPRNT) { }
