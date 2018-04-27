@@ -21,6 +21,91 @@ import { Injectable } from '@angular/core';
 import { Cordova, IonicNativePlugin, Plugin } from '@ionic-native/core';
 import { Observable } from 'rxjs/Observable';
 /**
+ * Emulation constants
+ */
+export var Emulation;
+(function (Emulation) {
+    /** mPOP, SM-L200, SM-L300, SM-S210i, SM-S220i, SM-S230i, SM-T300i/T300, SM-T400i */
+    Emulation["StarPRNT"] = "StarPRNT";
+    /** SM-L200, SM-L300 */
+    Emulation["StarPRNTL"] = "StarPRNTL";
+    /** FVP10, TSP650II, TSP700II, TSP800II */
+    Emulation["StarLine"] = "StarLine";
+    /** TSP100 */
+    Emulation["StarGraphic"] = "StarGraphic";
+    /** BSC10 */
+    Emulation["EscPos"] = "EscPos";
+    /** SM-S210i, SM-S220i, SM-S230i, SM-T300i/T300, SM-T400i */
+    Emulation["EscPosMobile"] = "EscPosMobile";
+    /** SP700 */
+    Emulation["StarDotImpact"] = "StarDotImpact";
+})(Emulation || (Emulation = {}));
+/**
+ * Encoding constants
+ */
+export var Encoding;
+(function (Encoding) {
+    /** English */
+    Encoding["USASCII"] = "US-ASCII";
+    /** French, German, Portuguese, Spanish */
+    Encoding["Windows1252"] = "Windows-1252";
+    /** Japanese */
+    Encoding["ShiftJIS"] = "Shift-JIS";
+    /** Russian */
+    Encoding["Windows1251"] = "Windows-1251";
+    /** Simplified Chinese */
+    Encoding["GB2312"] = "GB2312";
+    /** Traditional Chinese */
+    Encoding["Big5"] = "Big5";
+    /** UFT8 */
+    Encoding["UTF8"] = "UTF-8";
+})(Encoding || (Encoding = {}));
+/**
+ * CodePageType constants
+ */
+export var CodePageType;
+(function (CodePageType) {
+    CodePageType["CP737"] = "CP737";
+    CodePageType["CP772"] = "CP772";
+    CodePageType["CP774"] = "CP774";
+    CodePageType["CP851"] = "CP851";
+    CodePageType["CP852"] = "CP852";
+    CodePageType["CP855"] = "CP855";
+    CodePageType["CP857"] = "CP857";
+    CodePageType["CP858"] = "CP858";
+    CodePageType["CP860"] = "CP860";
+    CodePageType["CP861"] = "CP861";
+    CodePageType["CP862"] = "CP862";
+    CodePageType["CP863"] = "CP863";
+    CodePageType["CP864"] = "CP864";
+    CodePageType["CP865"] = "CP865";
+    CodePageType["CP869"] = "CP869";
+    CodePageType["CP874"] = "CP874";
+    CodePageType["CP928"] = "CP928";
+    CodePageType["CP932"] = "CP932";
+    CodePageType["CP999"] = "CP999";
+    CodePageType["CP1001"] = "CP1001";
+    CodePageType["CP1250"] = "CP1250";
+    CodePageType["CP1251"] = "CP1251";
+    CodePageType["CP1252"] = "CP1252";
+    CodePageType["CP2001"] = "CP2001";
+    CodePageType["CP3001"] = "CP3001";
+    CodePageType["CP3002"] = "CP3002";
+    CodePageType["CP3011"] = "CP3011";
+    CodePageType["CP3012"] = "CP3012";
+    CodePageType["CP3021"] = "CP3021";
+    CodePageType["CP3041"] = "CP3041";
+    CodePageType["CP3840"] = "CP3840";
+    CodePageType["CP3841"] = "CP3841";
+    CodePageType["CP3843"] = "CP3843";
+    CodePageType["CP3845"] = "CP3845";
+    CodePageType["CP3846"] = "CP3846";
+    CodePageType["CP3847"] = "CP3847";
+    CodePageType["CP3848"] = "CP3848";
+    CodePageType["UTF8"] = "UTF8";
+    CodePageType["Blank"] = "Blank";
+})(CodePageType || (CodePageType = {}));
+/**
  * InternationalType constants
  */
 export var InternationalType;
@@ -155,7 +240,7 @@ export var BitmapConverterRotation;
  *
  * @usage
  * ```typescript
- * import { StarPRNT } from '@ionic-native/starprnt';
+ * import { StarPRNT } from '@ionic-native/star-prnt';
  *
  *
  * constructor(private starprnt: StarPRNT) { }
@@ -173,6 +258,74 @@ var StarPRNT = (function (_super) {
     __extends(StarPRNT, _super);
     function StarPRNT() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
+        /**
+         * Constant for Emulation
+         */
+        _this.Emulation = {
+            StarPRNT: 'StarPRNT',
+            StarPRNTL: 'StarPRNTL',
+            StarLine: 'StarLine',
+            StarGraphic: 'StarGraphic',
+            EscPos: 'EscPos',
+            EscPosMobile: 'EscPosMobile',
+            StarDotImpact: 'StarDotImpact',
+        };
+        /**
+         * Constant for possible Encoding
+         */
+        _this.Encoding = {
+            USASCII: 'US-ASCII',
+            Windows1252: 'Windows-1252',
+            ShiftJIS: 'Shift-JIS',
+            Windows1251: 'Windows-1251',
+            GB2312: 'GB2312',
+            Big5: 'Big5',
+            UTF8: 'UTF-8'
+        };
+        /**
+         * CodePageType constants
+         */
+        _this.CodePageType = {
+            CP737: 'CP737',
+            CP772: 'CP772',
+            CP774: 'CP774',
+            CP851: 'CP851',
+            CP852: 'CP852',
+            CP855: 'CP855',
+            CP857: 'CP857',
+            CP858: 'CP858',
+            CP860: 'CP860',
+            CP861: 'CP861',
+            CP862: 'CP862',
+            CP863: 'CP863',
+            CP864: 'CP864',
+            CP865: 'CP865',
+            CP869: 'CP869',
+            CP874: 'CP874',
+            CP928: 'CP928',
+            CP932: 'CP932',
+            CP999: 'CP999',
+            CP1001: 'CP1001',
+            CP1250: 'CP1250',
+            CP1251: 'CP1251',
+            CP1252: 'CP1252',
+            CP2001: 'CP2001',
+            CP3001: 'CP3001',
+            CP3002: 'CP3002',
+            CP3011: 'CP3011',
+            CP3012: 'CP3012',
+            CP3021: 'CP3021',
+            CP3041: 'CP3041',
+            CP3840: 'CP3840',
+            CP3841: 'CP3841',
+            CP3843: 'CP3843',
+            CP3845: 'CP3845',
+            CP3846: 'CP3846',
+            CP3847: 'CP3847',
+            CP3848: 'CP3848',
+            UTF8: 'UTF8',
+            Blank: 'Blank'
+        };
         /**
          * Constant for possible InternationalType
          */
@@ -459,8 +612,6 @@ var StarPRNT = (function (_super) {
             plugin: 'cordova-plugin-starprnt',
             pluginRef: 'starprnt',
             repo: 'https://github.com/auctifera-josed/starprnt',
-            install: '',
-            installVariables: [],
             platforms: ['Android', 'iOS'] // Array of platforms supported, example: ['Android', 'iOS']
         })
     ], StarPRNT);

@@ -21,7 +21,7 @@ QrCodeModel constants
 
 ** No1**:    = "No1"
 
-*Defined in index.d.ts:403*
+*Defined in [index.d.ts:526](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L526)*
 
 ___
 
@@ -31,7 +31,7 @@ ___
 
 ** No2**:    = "No2"
 
-*Defined in index.d.ts:404*
+*Defined in [index.d.ts:527](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L527)*
 
 ___
 

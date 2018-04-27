@@ -133,22 +133,22 @@ export class ReceiptService {
     
             /* Two Inches receipt*/
           
-        let twoInchRasterImage: CommandsArray = [];
-            twoInchRasterImage.push({appendInternational: this.starprnt.InternationalType.UK});
-            twoInchRasterImage.push({appendCharacterSpace:0});
-            twoInchRasterImage.push({appendAlignment: this.starprnt.AlignmentPosition.Center});
-            twoInchRasterImage.push({append:
+        let twoInchReceipt: CommandsArray = [];
+            twoInchReceipt.push({appendInternational: this.starprnt.InternationalType.UK});
+            twoInchReceipt.push({appendCharacterSpace:0});
+            twoInchReceipt.push({appendAlignment: this.starprnt.AlignmentPosition.Center});
+            twoInchReceipt.push({append:
                 "Star Clothing Boutique\n" +
                 "123 Star Road\n" +
                 "City, State 12345\n" +
                 "\n"});
-            twoInchRasterImage.push({appendAlignment: this.starprnt.AlignmentPosition.Left});
-            twoInchRasterImage.push({append:
+            twoInchReceipt.push({appendAlignment: this.starprnt.AlignmentPosition.Left});
+            twoInchReceipt.push({append:
             "Date:MM/DD/YYYY    Time:HH:MM PM\n" +
             "--------------------------------\n" +
             "\n"});
-            twoInchRasterImage.push({appendEmphasis:"SALE\n"});
-            twoInchRasterImage.push({append:
+            twoInchReceipt.push({appendEmphasis:"SALE\n"});
+            twoInchReceipt.push({append:
             "SKU         Description    Total\n" +
             "300678566   PLAIN T-SHIRT  10.99\n" +
             "300692003   BLACK DENIM    29.99\n" +
@@ -159,78 +159,78 @@ export class ReceiptService {
             "Subtotal                  156.95\n" +
             "Tax                         0.00\n" +
             "--------------------------------\n"});
-            twoInchRasterImage.push({append:"Total     "});
-            twoInchRasterImage.push({appendMultiple:"   $156.95\n", width:2, height:2});
-            twoInchRasterImage.push({append:
+            twoInchReceipt.push({append:"Total     "});
+            twoInchReceipt.push({appendMultiple:"   $156.95\n", width:2, height:2});
+            twoInchReceipt.push({append:
             "--------------------------------\n" +
             "\n" +
             "Charge\n" +
             "156.95\n" +
             "Visa XXXX-XXXX-XXXX-0123\n" +
             "\n"});
-            twoInchRasterImage.push({appendInvert:"Refunds and Exchanges\n"});
-            twoInchRasterImage.push({append:"Within "});
-            twoInchRasterImage.push({appendUnderline:"30 days"});
-            twoInchRasterImage.push({append:" with receipt\n"});
-            twoInchRasterImage.push({append:
+            twoInchReceipt.push({appendInvert:"Refunds and Exchanges\n"});
+            twoInchReceipt.push({append:"Within "});
+            twoInchReceipt.push({appendUnderline:"30 days"});
+            twoInchReceipt.push({append:" with receipt\n"});
+            twoInchReceipt.push({append:
             "And tags attached\n" +
             "\n"});
-            twoInchRasterImage.push({appendAlignment:this.starprnt.AlignmentPosition.Center});
+            twoInchReceipt.push({appendAlignment:this.starprnt.AlignmentPosition.Center});
             if(qrCodeExample){ //print QRCode
-                twoInchRasterImage.push({appendQrCode:"{BStar",
+                twoInchReceipt.push({appendQrCode:"{BStar",
                                         QrCodeModel:"No2",
                                         QrCodeLevel:"L",
                                         cell: 8 });
             }else{ //print normal Barcode
-            twoInchRasterImage.push({appendBarcode:"{BStar.", 
+            twoInchReceipt.push({appendBarcode:"{BStar.", 
                                     BarcodeSymbology:this.starprnt.BarcodeSymbology.Code128,
                                     BarcodeWidth:this.starprnt.BarcodeWidth.Mode2,
                                     height:40,
                                     hri:true});
             }
-            twoInchRasterImage.push({appendLineFeed:2});
-        twoInchRasterImage.push({appendCutPaper:this.starprnt.CutPaperAction.PartialCutWithFeed});
+            twoInchReceipt.push({appendLineFeed:2});
+        twoInchReceipt.push({appendCutPaper:this.starprnt.CutPaperAction.PartialCutWithFeed});
     
             /* Three Inches receipt*/
 
-        let threeInchRasterImage: CommandsArray = [];
-            threeInchRasterImage.push({appendInternational: this.starprnt.InternationalType.UK});
-            threeInchRasterImage.push({appendCharacterSpace:0});
-            threeInchRasterImage.push({appendAlignment: this.starprnt.AlignmentPosition.Center});
-            threeInchRasterImage.push({append:
+        let threeInchReceipt: CommandsArray = [];
+            threeInchReceipt.push({appendInternational: this.starprnt.InternationalType.UK});
+            threeInchReceipt.push({appendCharacterSpace:0});
+            threeInchReceipt.push({appendAlignment: this.starprnt.AlignmentPosition.Center});
+            threeInchReceipt.push({append:
                 "Star Clothing Boutique\n" +
                 "123 Star Road\n" +
                 "City, State 12345\n" +
                 "\n"});
-            threeInchRasterImage.push({appendAlignment: this.starprnt.AlignmentPosition.Left});
-            threeInchRasterImage.push({append:
+            threeInchReceipt.push({appendAlignment: this.starprnt.AlignmentPosition.Left});
+            threeInchReceipt.push({append:
                 "Date:MM/DD/YYYY                    Time:HH:MM PM\n" +
                 "------------------------------------------------\n" +
                 "\n"});
-            threeInchRasterImage.push({appendEmphasis:"SALE\n"});
+            threeInchReceipt.push({appendEmphasis:"SALE\n"});
 
             if(horizontalTab){ 
                 //Only works for certain printers, check the StarSDK command compatiblity chart
-                threeInchRasterImage.push({appendHorizontalTabPosition:[15,40]});
-                threeInchRasterImage.push({append:"\n*Tab Position:\t15, \t40*\n"});
-                threeInchRasterImage.push({append:"SKU\tDescription\tTotal\n"});
-                threeInchRasterImage.push({append:"300678566\tPLAIN T-SHIRT\t10.99\n"});
-                threeInchRasterImage.push({append:"300692003\tBLACK DENIM\t29.99\n"});
-                threeInchRasterImage.push({append:"300651148\tBLUE DENIM\t29.99\n"});
-                threeInchRasterImage.push({append:"300642980\tSTRIPED DRESS\t49.99\n"});
-                threeInchRasterImage.push({append:"300638471\tBLACK BOOTS\t35.99\n"});
-                threeInchRasterImage.push({appendHorizontalTabPosition:[]}); //Clear the horizontal tab postion
+                threeInchReceipt.push({appendHorizontalTabPosition:[15,40]});
+                threeInchReceipt.push({append:"\n*Tab Position:\t15, \t40*\n"});
+                threeInchReceipt.push({append:"SKU\tDescription\tTotal\n"});
+                threeInchReceipt.push({append:"300678566\tPLAIN T-SHIRT\t10.99\n"});
+                threeInchReceipt.push({append:"300692003\tBLACK DENIM\t29.99\n"});
+                threeInchReceipt.push({append:"300651148\tBLUE DENIM\t29.99\n"});
+                threeInchReceipt.push({append:"300642980\tSTRIPED DRESS\t49.99\n"});
+                threeInchReceipt.push({append:"300638471\tBLACK BOOTS\t35.99\n"});
+                threeInchReceipt.push({appendHorizontalTabPosition:[]}); //Clear the horizontal tab postion
 
-                threeInchRasterImage.push({appendLineFeed:1});
-                threeInchRasterImage.push({appendHorizontalTabPosition:[40]});
-                threeInchRasterImage.push({append:"Subtotal\t156.95\n"});
-                threeInchRasterImage.push({append:"Tax\t  0.00\n"});
-                threeInchRasterImage.push({append:"---------------------------------------------\n"});
+                threeInchReceipt.push({appendLineFeed:1});
+                threeInchReceipt.push({appendHorizontalTabPosition:[40]});
+                threeInchReceipt.push({append:"Subtotal\t156.95\n"});
+                threeInchReceipt.push({append:"Tax\t  0.00\n"});
+                threeInchReceipt.push({append:"---------------------------------------------\n"});
                 
-                threeInchRasterImage.push({appendHorizontalTabPosition:[]}); //Clear the horizontal tab postion
+                threeInchReceipt.push({appendHorizontalTabPosition:[]}); //Clear the horizontal tab postion
 
             }else{
-            threeInchRasterImage.push({append:
+            threeInchReceipt.push({append:
                 "SKU               Description              Total\n" +
                 "300678566         PLAIN T-SHIRT            10.99\n" +
                 "300692003         BLACK DENIM              29.99\n" +
@@ -242,57 +242,57 @@ export class ReceiptService {
                 "Tax                                         0.00\n" +
                 "------------------------------------------------\n"});
             }
-            threeInchRasterImage.push({append:"Total                       "});
-            threeInchRasterImage.push({appendMultiple:"   $156.95\n", width:2, height:2});
-            threeInchRasterImage.push({append:
+            threeInchReceipt.push({append:"Total                       "});
+            threeInchReceipt.push({appendMultiple:"   $156.95\n", width:2, height:2});
+            threeInchReceipt.push({append:
                 "------------------------------------------------\n" +
                 "\n" +
                 "Charge\n" +
                 "156.95\n" +
                 "Visa XXXX-XXXX-XXXX-0123\n" +
                 "\n"});
-            threeInchRasterImage.push({appendInvert:"Refunds and Exchanges\n"});
-            threeInchRasterImage.push({append:"Within "});
-            threeInchRasterImage.push({appendUnderline:"30 days"});
-            threeInchRasterImage.push({append:" with receipt\n"});
-            threeInchRasterImage.push({append:
+            threeInchReceipt.push({appendInvert:"Refunds and Exchanges\n"});
+            threeInchReceipt.push({append:"Within "});
+            threeInchReceipt.push({appendUnderline:"30 days"});
+            threeInchReceipt.push({append:" with receipt\n"});
+            threeInchReceipt.push({append:
             "And tags attached\n" +
             "\n"});
-            threeInchRasterImage.push({appendAlignment:this.starprnt.AlignmentPosition.Center});
+            threeInchReceipt.push({appendAlignment:this.starprnt.AlignmentPosition.Center});
             if(qrCodeExample){ //print QRCode
-                threeInchRasterImage.push({appendQrCode:"{BStar",
+                threeInchReceipt.push({appendQrCode:"{BStar",
                                         QrCodeModel:"No2",
                                         QrCodeLevel:"L",
                                         cell: 8 });
             }else{ //print normal Barcode
-            threeInchRasterImage.push({appendBarcode:"{BStar.", 
+            threeInchReceipt.push({appendBarcode:"{BStar.", 
                                     BarcodeSymbology:this.starprnt.BarcodeSymbology.Code128,
                                     BarcodeWidth:this.starprnt.BarcodeWidth.Mode2,
                                     height:40,
                                     hri:true});
-            threeInchRasterImage.push({appendLineFeed:2});
+            threeInchReceipt.push({appendLineFeed:2});
             }
-        threeInchRasterImage.push({appendCutPaper:this.starprnt.CutPaperAction.PartialCutWithFeed});
+        threeInchReceipt.push({appendCutPaper:this.starprnt.CutPaperAction.PartialCutWithFeed});
         
 
         /* Four Inches receipt*/
                                               
-        let fourInchRasterImage: CommandsArray = [];
-            fourInchRasterImage.push({appendInternational: this.starprnt.InternationalType.UK});
-            fourInchRasterImage.push({appendCharacterSpace:0});
-            fourInchRasterImage.push({appendAlignment: this.starprnt.AlignmentPosition.Center});
-            fourInchRasterImage.push({append:
+        let fourInchReceipt: CommandsArray = [];
+            fourInchReceipt.push({appendInternational: this.starprnt.InternationalType.UK});
+            fourInchReceipt.push({appendCharacterSpace:0});
+            fourInchReceipt.push({appendAlignment: this.starprnt.AlignmentPosition.Center});
+            fourInchReceipt.push({append:
                 "Star Clothing Boutique\n" +
                 "123 Star Road\n" +
                 "City, State 12345\n" +
                 "\n"});
-            fourInchRasterImage.push({appendAlignment: this.starprnt.AlignmentPosition.Left});
-            fourInchRasterImage.push({append:
+            fourInchReceipt.push({appendAlignment: this.starprnt.AlignmentPosition.Left});
+            fourInchReceipt.push({append:
                 "Date:MM/DD/YYYY                                         Time:HH:MM PM\n" +
                             "---------------------------------------------------------------------\n" +
                             "\n"});
-            fourInchRasterImage.push({appendEmphasis:"SALE\n"});
-            fourInchRasterImage.push({append:
+            fourInchReceipt.push({appendEmphasis:"SALE\n"});
+            fourInchReceipt.push({append:
                 "SKU                        Description                          Total\n" +
                             "300678566                  PLAIN T-SHIRT                        10.99\n" +
                             "300692003                  BLACK DENIM                          29.99\n" +
@@ -303,47 +303,47 @@ export class ReceiptService {
                             "Subtotal                                                       156.95\n" +
                             "Tax                                                              0.00\n" +
                             "---------------------------------------------------------------------\n"});
-            fourInchRasterImage.push({append:"Total                                            "});
-            fourInchRasterImage.push({appendMultiple:"   $156.95\n", width:2, height:2});
-            fourInchRasterImage.push({append:
+            fourInchReceipt.push({append:"Total                                            "});
+            fourInchReceipt.push({appendMultiple:"   $156.95\n", width:2, height:2});
+            fourInchReceipt.push({append:
                 "---------------------------------------------------------------------\n" +
                             "\n" +
                             "Charge\n" +
                             "156.95\n" +
                             "Visa XXXX-XXXX-XXXX-0123\n" +
                             "\n"});
-            fourInchRasterImage.push({appendInvert:"Refunds and Exchanges\n"});
-            fourInchRasterImage.push({append:"Within "});
-            fourInchRasterImage.push({appendUnderline:"30 days"});
-            fourInchRasterImage.push({append:" with receipt\n"});
-            fourInchRasterImage.push({append:
+            fourInchReceipt.push({appendInvert:"Refunds and Exchanges\n"});
+            fourInchReceipt.push({append:"Within "});
+            fourInchReceipt.push({appendUnderline:"30 days"});
+            fourInchReceipt.push({append:" with receipt\n"});
+            fourInchReceipt.push({append:
             "And tags attached\n" +
             "\n"});
-            fourInchRasterImage.push({appendAlignment:this.starprnt.AlignmentPosition.Center});
+            fourInchReceipt.push({appendAlignment:this.starprnt.AlignmentPosition.Center});
             if(qrCodeExample){ //print QRCode
-                fourInchRasterImage.push({appendQrCode:"{BStar",
+                fourInchReceipt.push({appendQrCode:"{BStar",
                                         QrCodeModel:"No2",
                                         QrCodeLevel:"L",
                                         cell: 8 });
             }else{ //print normal Barcode
-            fourInchRasterImage.push({appendBarcode:"{BStar.", 
+            fourInchReceipt.push({appendBarcode:"{BStar.", 
                                     BarcodeSymbology:this.starprnt.BarcodeSymbology.Code128,
                                     BarcodeWidth:this.starprnt.BarcodeWidth.Mode2,
                                     height:40,
                                     hri:true});
             }
-            fourInchRasterImage.push({appendLineFeed:2});
-        fourInchRasterImage.push({appendCutPaper:this.starprnt.CutPaperAction.PartialCutWithFeed});             
+            fourInchReceipt.push({appendLineFeed:2});
+        fourInchReceipt.push({appendCutPaper:this.starprnt.CutPaperAction.PartialCutWithFeed});             
                   
                 switch(paperSize){
                     case '2':
-                    return twoInchRasterImage 
+                    return twoInchReceipt 
                     case '3':
-                    return threeInchRasterImage 
+                    return threeInchReceipt 
                     case '4':
-                    return fourInchRasterImage
+                    return fourInchReceipt
                     default:
-                    return threeInchRasterImage 
+                    return threeInchReceipt 
                 }       
                 
             }

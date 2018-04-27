@@ -23,7 +23,7 @@ BitmapConverterRotation constants
 
 ** Left90**:    = "Left90"
 
-*Defined in index.d.ts:420*
+*Defined in [index.d.ts:543](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L543)*
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 ** Normal**:    = "Normal"
 
-*Defined in index.d.ts:419*
+*Defined in [index.d.ts:542](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L542)*
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 ** Right90**:    = "Right90"
 
-*Defined in index.d.ts:421*
+*Defined in [index.d.ts:544](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L544)*
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 ** Rotate180**:    = "Rotate180"
 
-*Defined in index.d.ts:422*
+*Defined in [index.d.ts:545](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L545)*
 
 ___
 

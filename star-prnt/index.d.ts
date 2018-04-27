@@ -93,13 +93,35 @@ export interface ImageObj {
 }
 export interface PrintCommand {
     /**
-     * Data (Text and Command) is added to the command buffer. Example: {append:"Star Clothing Boutique\n123 Star Road\nCity, State 12345\n\n"}
+     * Characther encoding is used to getByte data from all subsequent commands. Default 'US-ASCII'
+     * Choose the format of the return value Defined in StarPRNT.Encoding or the Encoding enum.
+     * Example: {appendEncoding:'US-ASCII'}
+     */
+    appendEncoding?: string;
+    /**
+     * Select command of the code page is generated and added to the commands property.
+     * Choose the format of the return value Defined in StarPRNT.CodePageType or the CodePageType enum.
+     * Example: {appendCodePage:'CP858'}
+     */
+    appendCodePage?: string;
+    /**
+     * Data (Text) is added to the command buffer. Example: {append:"Star Clothing Boutique\n123 Star Road\nCity, State 12345\n\n"}
      */
     append?: string;
     /**
-     * Data (Text and Command) is added to the command buffer. Example: {appendRaw:"Star Clothing Boutique\n123 Star Road\nCity, State 12345\n\n"}
+     * Data (Text) is added to the command buffer. Example: {appendRaw:"Star Clothing Boutique\n123 Star Road\nCity, State 12345\n\n"}
      */
     appendRaw?: string;
+    /**
+     * Data (Command) is added to the command buffer. Takes an array of bytes.
+     * Example: {appendBytes:[0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x20, 0x57, 0x6f, 0x72, 0x6c, 0x64, 0x2e]}
+     */
+    appendBytes?: Array<number>;
+    /**
+     * Data (Command) is added to the command buffer. Takes an array of bytes.
+     * Example: {appendRawBytes:[0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x20, 0x57, 0x6f, 0x72, 0x6c, 0x64, 0x2e]}
+     */
+    appendRawBytes?: Array<number>;
     /**
      * Set command of the character space is generated and added to the command buffer. Character Spacs (Unit: Dots) Example: 4
      */
@@ -109,13 +131,25 @@ export interface PrintCommand {
      */
     appendEmphasis?: string;
     /**
+      *  Enable emphasis mode is generated and added to the command buffer. Example: {enableEmphasis:true}
+     */
+    enableEmphasis?: boolean;
+    /**
      *  Select command of the invert mode is generated and added to the command buffer. Example: {appendInvert:"Refunds and Exchanges\n"}
      */
     appendInvert?: string;
     /**
+     *  Enable invert mode is generated and added to the command buffer. Example: {enableInvert:true}
+     */
+    enableInvert?: boolean;
+    /**
      *  Select command of the under line mode is generated and added to the command buffer. Example: {appendUnderline:"30 days"}
      */
     appendUnderline?: string;
+    /**
+     *  Enable under line mode is generated and added to the command buffer. Example: {enableUnderline:true}
+     */
+    enableUnderline?: boolean;
     /**
      * Select command of the international character mode is generated and added to the command buffer.
      * Choose the format of the return value Defined in StarPRNT.InternationalType or the InternationalType enum.
@@ -248,6 +282,13 @@ export interface PrintCommand {
      */
     appendMultiple?: string;
     /**
+     * Enable multiple mode is generated and added to the command buffer.
+     * Additional properties: width:number, height:number
+     * Example: {enableMultiple:true, width:2, height:2}
+     * Disable Example: {enableMultiple:false}
+     */
+    enableMultiple?: boolean;
+    /**
      * Print command of the QR code is generated and added to the command buffer.
      * Additional Properties: QrCodeModel, QrCodeLevel, cell, absolutePosition, alignment.
      * Example: {appendQrCode:"{BStar", QrCodeModel:"No2", QrCodeLevel:"L", cell: 8}.
@@ -303,6 +344,88 @@ export interface PrintCommand {
      * sends a appendPeripheral command to the printer for channel number: Example: 1 = No1, 2 = No2
      */
     openCashDrawer?: number;
+}
+/**
+ * Emulation constants
+ */
+export declare enum Emulation {
+    /** mPOP, SM-L200, SM-L300, SM-S210i, SM-S220i, SM-S230i, SM-T300i/T300, SM-T400i */
+    StarPRNT = "StarPRNT",
+    /** SM-L200, SM-L300 */
+    StarPRNTL = "StarPRNTL",
+    /** FVP10, TSP650II, TSP700II, TSP800II */
+    StarLine = "StarLine",
+    /** TSP100 */
+    StarGraphic = "StarGraphic",
+    /** BSC10 */
+    EscPos = "EscPos",
+    /** SM-S210i, SM-S220i, SM-S230i, SM-T300i/T300, SM-T400i */
+    EscPosMobile = "EscPosMobile",
+    /** SP700 */
+    StarDotImpact = "StarDotImpact",
+}
+/**
+ * Encoding constants
+ */
+export declare enum Encoding {
+    /** English */
+    USASCII = "US-ASCII",
+    /** French, German, Portuguese, Spanish */
+    Windows1252 = "Windows-1252",
+    /** Japanese */
+    ShiftJIS = "Shift-JIS",
+    /** Russian */
+    Windows1251 = "Windows-1251",
+    /** Simplified Chinese */
+    GB2312 = "GB2312",
+    /** Traditional Chinese */
+    Big5 = "Big5",
+    /** UFT8 */
+    UTF8 = "UTF-8",
+}
+/**
+ * CodePageType constants
+ */
+export declare enum CodePageType {
+    CP737 = "CP737",
+    CP772 = "CP772",
+    CP774 = "CP774",
+    CP851 = "CP851",
+    CP852 = "CP852",
+    CP855 = "CP855",
+    CP857 = "CP857",
+    CP858 = "CP858",
+    CP860 = "CP860",
+    CP861 = "CP861",
+    CP862 = "CP862",
+    CP863 = "CP863",
+    CP864 = "CP864",
+    CP865 = "CP865",
+    CP869 = "CP869",
+    CP874 = "CP874",
+    CP928 = "CP928",
+    CP932 = "CP932",
+    CP999 = "CP999",
+    CP1001 = "CP1001",
+    CP1250 = "CP1250",
+    CP1251 = "CP1251",
+    CP1252 = "CP1252",
+    CP2001 = "CP2001",
+    CP3001 = "CP3001",
+    CP3002 = "CP3002",
+    CP3011 = "CP3011",
+    CP3012 = "CP3012",
+    CP3021 = "CP3021",
+    CP3041 = "CP3041",
+    CP3840 = "CP3840",
+    CP3841 = "CP3841",
+    CP3843 = "CP3843",
+    CP3845 = "CP3845",
+    CP3846 = "CP3846",
+    CP3847 = "CP3847",
+    CP3848 = "CP3848",
+    UTF8 = "UTF8",
+    Blank = "Blank",
 }
 /**
  * InternationalType constants
@@ -433,7 +556,7 @@ export interface CommandsArray extends Array<PrintCommand> {
  *
  * @usage
  * ```typescript
- * import { StarPRNT } from '@ionic-native/starprnt';
+ * import { StarPRNT } from '@ionic-native/star-prnt';
  *
  *
  * constructor(private starprnt: StarPRNT) { }
@@ -448,6 +571,74 @@ export interface CommandsArray extends Array<PrintCommand> {
  * ```
  */
 export declare class StarPRNT extends IonicNativePlugin {
+    /**
+     * Constant for Emulation
+     */
+    Emulation: {
+        StarPRNT: string;
+        StarPRNTL: string;
+        StarLine: string;
+        StarGraphic: string;
+        EscPos: string;
+        EscPosMobile: string;
+        StarDotImpact: string;
+    };
+    /**
+     * Constant for possible Encoding
+     */
+    Encoding: {
+        USASCII: string;
+        Windows1252: string;
+        ShiftJIS: string;
+        Windows1251: string;
+        GB2312: string;
+        Big5: string;
+        UTF8: string;
+    };
+    /**
+     * CodePageType constants
+     */
+    CodePageType: {
+        CP737: string;
+        CP772: string;
+        CP774: string;
+        CP851: string;
+        CP852: string;
+        CP855: string;
+        CP857: string;
+        CP858: string;
+        CP860: string;
+        CP861: string;
+        CP862: string;
+        CP863: string;
+        CP864: string;
+        CP865: string;
+        CP869: string;
+        CP874: string;
+        CP928: string;
+        CP932: string;
+        CP999: string;
+        CP1001: string;
+        CP1250: string;
+        CP1251: string;
+        CP1252: string;
+        CP2001: string;
+        CP3001: string;
+        CP3002: string;
+        CP3011: string;
+        CP3012: string;
+        CP3021: string;
+        CP3041: string;
+        CP3840: string;
+        CP3841: string;
+        CP3843: string;
+        CP3845: string;
+        CP3846: string;
+        CP3847: string;
+        CP3848: string;
+        UTF8: string;
+        Blank: string;
+    };
     /**
      * Constant for possible InternationalType
      */

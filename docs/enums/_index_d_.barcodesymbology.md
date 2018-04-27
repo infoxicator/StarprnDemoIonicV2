@@ -28,7 +28,7 @@ BarcodeSymbology constants
 
 ** Code128**:    = "Code128"
 
-*Defined in index.d.ts:375*
+*Defined in [index.d.ts:498](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L498)*
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 ** Code39**:    = "Code39"
 
-*Defined in index.d.ts:376*
+*Defined in [index.d.ts:499](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L499)*
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 ** Code93**:    = "Code93"
 
-*Defined in index.d.ts:377*
+*Defined in [index.d.ts:500](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L500)*
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 ** ITF**:    = "ITF"
 
-*Defined in index.d.ts:378*
+*Defined in [index.d.ts:501](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L501)*
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 ** JAN13**:    = "JAN13"
 
-*Defined in index.d.ts:380*
+*Defined in [index.d.ts:503](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L503)*
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 ** JAN8**:    = "JAN8"
 
-*Defined in index.d.ts:379*
+*Defined in [index.d.ts:502](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L502)*
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 ** NW7**:    = "NW7"
 
-*Defined in index.d.ts:381*
+*Defined in [index.d.ts:504](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L504)*
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 ** UPCA**:    = "UPCA"
 
-*Defined in index.d.ts:382*
+*Defined in [index.d.ts:505](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L505)*
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 ** UPCE**:    = "UPCE"
 
-*Defined in index.d.ts:383*
+*Defined in [index.d.ts:506](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L506)*
 
 ___
 

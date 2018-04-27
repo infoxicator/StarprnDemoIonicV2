@@ -30,7 +30,7 @@
 
 *Inherited from [PrintObj](_index_d_.printobj.md).[cutReceipt](_index_d_.printobj.md#cutreceipt)*
 
-*Defined in index.d.ts:60*
+*Defined in [index.d.ts:60](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L60)*
 
 Sends a PartialCutWithFeed command to the printer, defaults to true
 
@@ -42,7 +42,7 @@ ___
 
 **●  fontSize**:  *`number`* 
 
-*Defined in index.d.ts:70*
+*Defined in [index.d.ts:70](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L70)*
 
 Font size number, defaults to 25
 
@@ -56,7 +56,7 @@ ___
 
 *Inherited from [PrintObj](_index_d_.printobj.md).[openCashDrawer](_index_d_.printobj.md#opencashdrawer)*
 
-*Defined in index.d.ts:64*
+*Defined in [index.d.ts:64](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L64)*
 
 sends a appendPeripheral command to the printer for channels No1 and No2 - Defaults to true
 
@@ -68,7 +68,7 @@ ___
 
 **●  paperWidth**:  *`number`* 
 
-*Defined in index.d.ts:74*
+*Defined in [index.d.ts:74](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L74)*
 
 Paper width (Units: Dots). 2 inches: 384, 3 inches: 576, 4 inches: 832, ESCPos 3 inches: 512, Dot 3 inches: 210. Defaults to 576
 
@@ -82,7 +82,7 @@ ___
 
 *Inherited from [PrintObj](_index_d_.printobj.md).[text](_index_d_.printobj.md#text)*
 
-*Defined in index.d.ts:56*
+*Defined in [index.d.ts:56](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L56)*
 
 string containing the text to print, Example: "Star Clothing Boutique\\n123 Star Road\\nCity, State 12345\\n\\n"
 

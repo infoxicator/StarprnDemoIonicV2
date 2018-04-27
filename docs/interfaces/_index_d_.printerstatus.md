@@ -27,7 +27,7 @@
 
 **●  FirmwareVersion**:  *`string`* 
 
-*Defined in index.d.ts:50*
+*Defined in [index.d.ts:50](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L50)*
 
 Printer Firmware information
 
@@ -39,7 +39,7 @@ ___
 
 **●  ModelName**:  *`string`* 
 
-*Defined in index.d.ts:34*
+*Defined in [index.d.ts:34](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L34)*
 
 Printer model name and model number
 
@@ -51,7 +51,7 @@ ___
 
 **●  coverOpen**:  *`boolean`* 
 
-*Defined in index.d.ts:38*
+*Defined in [index.d.ts:38](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L38)*
 
 Printer cover status
 
@@ -63,7 +63,7 @@ ___
 
 **●  cutterError**:  *`boolean`* 
 
-*Defined in index.d.ts:42*
+*Defined in [index.d.ts:42](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L42)*
 
 Printer Paper Cutter status
 
@@ -75,7 +75,7 @@ ___
 
 **●  offline**:  *`boolean`* 
 
-*Defined in index.d.ts:30*
+*Defined in [index.d.ts:30](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L30)*
 
 Printer Online/Offline status
 
@@ -87,7 +87,7 @@ ___
 
 **●  receiptPaperEmpty**:  *`boolean`* 
 
-*Defined in index.d.ts:46*
+*Defined in [index.d.ts:46](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L46)*
 
 Printer Paper status
 

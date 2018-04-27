@@ -21,7 +21,7 @@ FontStyleType constants.
 
 ** A**:    = "A"
 
-*Defined in index.d.ts:333*
+*Defined in [index.d.ts:456](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L456)*
 
 Font-A (12 x 24 dots) / Specify 7 x 9 font (half dots)
 
@@ -33,7 +33,7 @@ ___
 
 ** B**:    = "B"
 
-*Defined in index.d.ts:335*
+*Defined in [index.d.ts:458](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L458)*
 
 Font-B (9 x 24 dots) / Specify 5 x 9 font (2P-1)
 

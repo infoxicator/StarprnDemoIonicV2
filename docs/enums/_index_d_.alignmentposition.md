@@ -22,7 +22,7 @@ AlignmentPosition constants
 
 ** Center**:    = "Center"
 
-*Defined in index.d.ts:368*
+*Defined in [index.d.ts:491](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L491)*
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 ** Left**:    = "Left"
 
-*Defined in index.d.ts:367*
+*Defined in [index.d.ts:490](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L490)*
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 ** Right**:    = "Right"
 
-*Defined in index.d.ts:369*
+*Defined in [index.d.ts:492](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L492)*
 
 ___
 

@@ -25,7 +25,7 @@
 
 **●  cutReceipt**:  *`boolean`* 
 
-*Defined in index.d.ts:88*
+*Defined in [index.d.ts:88](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L88)*
 
 Sends a PartialCutWithFeed command to the printer, defaults to true
 
@@ -37,7 +37,7 @@ ___
 
 **●  openCashDrawer**:  *`boolean`* 
 
-*Defined in index.d.ts:92*
+*Defined in [index.d.ts:92](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L92)*
 
 sends a appendPeripheral command to the printer for channels No1 and No2 - Defaults to true
 
@@ -49,7 +49,7 @@ ___
 
 **●  paperWidth**:  *`number`* 
 
-*Defined in index.d.ts:84*
+*Defined in [index.d.ts:84](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L84)*
 
 Image width (Units: Dots) defaults to 576
 
@@ -61,7 +61,7 @@ ___
 
 **●  uri**:  *`string`* 
 
-*Defined in index.d.ts:80*
+*Defined in [index.d.ts:80](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L80)*
 
 Image URI to print, this can be obtained via the camera or photo library or as a static resource saved on the phone memory
 

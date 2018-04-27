@@ -28,7 +28,7 @@ BarcodeWidth constants
 
 ** Mode1**:    = "Mode1"
 
-*Defined in index.d.ts:389*
+*Defined in [index.d.ts:512](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L512)*
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 ** Mode2**:    = "Mode2"
 
-*Defined in index.d.ts:390*
+*Defined in [index.d.ts:513](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L513)*
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 ** Mode3**:    = "Mode3"
 
-*Defined in index.d.ts:391*
+*Defined in [index.d.ts:514](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L514)*
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 ** Mode4**:    = "Mode4"
 
-*Defined in index.d.ts:392*
+*Defined in [index.d.ts:515](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L515)*
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 ** Mode5**:    = "Mode5"
 
-*Defined in index.d.ts:393*
+*Defined in [index.d.ts:516](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L516)*
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 ** Mode6**:    = "Mode6"
 
-*Defined in index.d.ts:394*
+*Defined in [index.d.ts:517](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L517)*
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 ** Mode7**:    = "Mode7"
 
-*Defined in index.d.ts:395*
+*Defined in [index.d.ts:518](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L518)*
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 ** Mode8**:    = "Mode8"
 
-*Defined in index.d.ts:396*
+*Defined in [index.d.ts:519](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L519)*
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 ** Mode9**:    = "Mode9"
 
-*Defined in index.d.ts:397*
+*Defined in [index.d.ts:520](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L520)*
 
 ___
 

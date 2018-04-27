@@ -23,7 +23,7 @@ LogoSize constants
 
 ** DoubleHeight**:    = "DoubleHeight"
 
-*Defined in index.d.ts:360*
+*Defined in [index.d.ts:483](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L483)*
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 ** DoubleWidth**:    = "DoubleWidth"
 
-*Defined in index.d.ts:359*
+*Defined in [index.d.ts:482](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L482)*
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 ** DoubleWidthDoubleHeight**:    = "DoubleWidthDoubleHeight"
 
-*Defined in index.d.ts:361*
+*Defined in [index.d.ts:484](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L484)*
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 ** Normal**:    = "Normal"
 
-*Defined in index.d.ts:358*
+*Defined in [index.d.ts:481](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L481)*
 
 ___
 

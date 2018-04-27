@@ -23,7 +23,7 @@ QrCodeLevel constants
 
 ** H**:    = "H"
 
-*Defined in index.d.ts:410*
+*Defined in [index.d.ts:533](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L533)*
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 ** L**:    = "L"
 
-*Defined in index.d.ts:411*
+*Defined in [index.d.ts:534](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L534)*
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 ** M**:    = "M"
 
-*Defined in index.d.ts:412*
+*Defined in [index.d.ts:535](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L535)*
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 ** Q**:    = "Q"
 
-*Defined in index.d.ts:413*
+*Defined in [index.d.ts:536](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L536)*
 
 ___
 

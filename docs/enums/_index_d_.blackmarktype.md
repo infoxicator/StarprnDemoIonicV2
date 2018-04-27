@@ -22,7 +22,7 @@ BlackMarkType constants.
 
 ** Invalid**:    = "Invalid"
 
-*Defined in index.d.ts:351*
+*Defined in [index.d.ts:474](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L474)*
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 ** Valid**:    = "Valid"
 
-*Defined in index.d.ts:350*
+*Defined in [index.d.ts:473](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L473)*
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 ** ValidWithDetection**:    = "ValidWithDetection"
 
-*Defined in index.d.ts:352*
+*Defined in [index.d.ts:475](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L475)*
 
 ___
 

@@ -35,7 +35,7 @@ InternationalType constants
 
 ** Denmark**:    = "Denmark"
 
-*Defined in index.d.ts:315*
+*Defined in [index.d.ts:438](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L438)*
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 ** Denmark2**:    = "Denmark2"
 
-*Defined in index.d.ts:321*
+*Defined in [index.d.ts:444](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L444)*
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 ** France**:    = "France"
 
-*Defined in index.d.ts:313*
+*Defined in [index.d.ts:436](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L436)*
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 ** Germany**:    = "Germany"
 
-*Defined in index.d.ts:314*
+*Defined in [index.d.ts:437](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L437)*
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 ** Ireland**:    = "Ireland"
 
-*Defined in index.d.ts:325*
+*Defined in [index.d.ts:448](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L448)*
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 ** Italy**:    = "Italy"
 
-*Defined in index.d.ts:317*
+*Defined in [index.d.ts:440](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L440)*
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 ** Japan**:    = "Japan"
 
-*Defined in index.d.ts:319*
+*Defined in [index.d.ts:442](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L442)*
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 ** Korea**:    = "Korea"
 
-*Defined in index.d.ts:324*
+*Defined in [index.d.ts:447](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L447)*
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 ** LatinAmerica**:    = "LatinAmerica"
 
-*Defined in index.d.ts:323*
+*Defined in [index.d.ts:446](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L446)*
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 ** Legal**:    = "Legal"
 
-*Defined in index.d.ts:326*
+*Defined in [index.d.ts:449](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L449)*
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 ** Norway**:    = "Norway"
 
-*Defined in index.d.ts:320*
+*Defined in [index.d.ts:443](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L443)*
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 ** Spain**:    = "Spain"
 
-*Defined in index.d.ts:318*
+*Defined in [index.d.ts:441](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L441)*
 
 ___
 
@@ -155,7 +155,7 @@ ___
 
 ** Spain2**:    = "Spain2"
 
-*Defined in index.d.ts:322*
+*Defined in [index.d.ts:445](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L445)*
 
 ___
 
@@ -165,7 +165,7 @@ ___
 
 ** Sweden**:    = "Sweden"
 
-*Defined in index.d.ts:316*
+*Defined in [index.d.ts:439](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L439)*
 
 ___
 
@@ -175,7 +175,7 @@ ___
 
 ** UK**:    = "UK"
 
-*Defined in index.d.ts:311*
+*Defined in [index.d.ts:434](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L434)*
 
 ___
 
@@ -185,7 +185,7 @@ ___
 
 ** USA**:    = "USA"
 
-*Defined in index.d.ts:312*
+*Defined in [index.d.ts:435](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L435)*
 
 ___
 

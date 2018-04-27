@@ -25,7 +25,7 @@
 
 **●  USBSerialNumber**:  *`string`* 
 
-*Defined in index.d.ts:19*
+*Defined in [index.d.ts:19](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L19)*
 
 USB Serial Number (USB Printers Only)
 
@@ -37,7 +37,7 @@ ___
 
 **●  macAddress**:  *`string`* 
 
-*Defined in index.d.ts:11*
+*Defined in [index.d.ts:11](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L11)*
 
 Printer Mac Address
 
@@ -49,7 +49,7 @@ ___
 
 **●  modelName**:  *`string`* 
 
-*Defined in index.d.ts:7*
+*Defined in [index.d.ts:7](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L7)*
 
 Printer model name and model number
 
@@ -61,7 +61,7 @@ ___
 
 **●  portName**:  *`string`* 
 
-*Defined in index.d.ts:15*
+*Defined in [index.d.ts:15](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L15)*
 
 Printer port name used to create a new port instance of SMPort or StarIOExtManager
 

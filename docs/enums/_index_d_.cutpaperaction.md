@@ -23,7 +23,7 @@ CutPaperAction constants.
 
 ** FullCut**:    = "FullCut"
 
-*Defined in index.d.ts:341*
+*Defined in [index.d.ts:464](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L464)*
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 ** FullCutWithFeed**:    = "FullCutWithFeed"
 
-*Defined in index.d.ts:342*
+*Defined in [index.d.ts:465](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L465)*
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 ** PartialCut**:    = "PartialCut"
 
-*Defined in index.d.ts:343*
+*Defined in [index.d.ts:466](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L466)*
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 ** PartialCutWithFeed**:    = "PartialCutWithFeed"
 
-*Defined in index.d.ts:344*
+*Defined in [index.d.ts:467](https://github.com/infoxicator/StarprnDemoIonicV2/blob/985c5ea/star-prnt/index.d.ts#L467)*
 
 ___
 
