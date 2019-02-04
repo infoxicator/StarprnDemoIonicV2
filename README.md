@@ -6,9 +6,26 @@ Application Demo using the [@ionic-native/star-prnt](https://ionicframework.com/
 # Install
 Install the Cordova and Ionic Native plugins:
 
+### Add platform:
+
+`ionic cordova platform add android`
+
+or `ionic cordova platform add ios`
+
+### Install plugin: (should already be added)
+
 `cordova plugin add cordova-plugin-starprnt`
 
 `npm install --save @ionic-native/star-prnt`
+
+or `npm install --save @ionic-native/star-prnt@4` based on Ionic [docs](https://ionicframework.com/docs/v3/native/starprnt/)
+
+### Run:
+
+` ionic cordova run android -l -c`
+ 
+ or ` ionic cordova run ios -l -c`
+
 
 **Important** 
 
