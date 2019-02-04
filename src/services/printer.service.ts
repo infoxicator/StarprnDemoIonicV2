@@ -86,8 +86,8 @@ export class PrinterService {
      * @param emulation {string} StarPrinter Emulation type: "StarPRNT", "StarPRNTL", "StarLine", "StarGraphic", "EscPos", "EscPosMobile", "StarDotImpact"
      * @return {Observable<any>} Success! if connected or error message string returned by the SDK.
      */
-      connect(port: string, emulation: string): Observable<any> { 
-         return this.starprnt.connect(port, emulation);        
+      connect(port: string, emulation: string, hasBarcodeReader: boolean): Observable<any> { 
+         return this.starprnt.connect(port, emulation, hasBarcodeReader);        
         }
   
       /**

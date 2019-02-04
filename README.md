@@ -53,8 +53,8 @@ let printObj:PrintObj = {
  *Connect to the printer before start sending commands:*
  
  ```typescript
- 
-    this.starprnt.connect('BT:StarMicronics', 'EscPosMobile')
+    let hasBarcodeReader = false;
+    this.starprnt.connect('BT:StarMicronics', 'EscPosMobile', hasBarcodeReader)
     .subscribe(result =>{
       console.log(result); //Success!
     }, error => {

@@ -95,7 +95,8 @@ export class StarIoExtManagerPage {
     console.log('Connect');
     let loading = this.alertService.createLoading("Communicating...");
     loading.present();
-    this.printerService.connect(this.defaultPrinter.portName, this.defaultPrinter.emulation)
+    let hasBarcodeReader = false;
+    this.printerService.connect(this.defaultPrinter.portName, this.defaultPrinter.emulation, hasBarcodeReader)
     .subscribe(result =>{
       loading.dismiss();
       console.log(result);
